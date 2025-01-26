@@ -1,0 +1,10 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1737934839
+::res://Models/::1737934776
+Joe_Baseball.fbx::PackedScene::9145467618048995402::1737934776::1737934841::1::::<><>::
+Pitcher.obj::Mesh::6635783536739270856::1737934776::1737934840::1::::<><>::
+::res://Scenes/::1737934776
+Game Test.tscn::PackedScene::7795394568501714883::1737934776::0::1::::<><>::uid://d3kerr6g3u31g::::res://Models/Joe_Baseball.fbx<>res://Scripts/Player.gd<>uid://c1sondp2cc25q::::res://Models/Pitcher.obj
+::res://Scripts/::1737934776
+Draw3D.gd::GDScript::-1::1737934776::0::1::::<>Node<>::
+Player.gd::GDScript::-1::1737934776::0::1::::<>Node<>::
