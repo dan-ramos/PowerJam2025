@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1sondp2cc25q"
+path="res://.godot/imported/Pitcher.obj-14b833f7ffd59b73347f03dcb01c14b6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Pitcher.obj-14b833f7ffd59b73347f03dcb01c14b6.mesh"]
+
+source_file="res://Models/Pitcher.obj"
+dest_files=["res://.godot/imported/Pitcher.obj-14b833f7ffd59b73347f03dcb01c14b6.mesh", "res://.godot/imported/Pitcher.obj-14b833f7ffd59b73347f03dcb01c14b6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
