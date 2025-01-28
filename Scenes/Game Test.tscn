@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://djcfalef8u644"]
+[gd_scene load_steps=29 format=3 uid="uid://djcfalef8u644"]
 
 [ext_resource type="PackedScene" uid="uid://d3kerr6g3u31g" path="res://Models/Joe_Baseball.fbx" id="1_12clm"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
@@ -38,6 +38,10 @@ albedo_color = Color(0.0666667, 0.780392, 0, 1)
 albedo_color = Color(0.729412, 0.4, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_k0oj6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0qyho"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rmfb7"]
 
 [sub_resource type="Animation" id="Animation_3g1r0"]
 resource_name = "Idle"
@@ -924,8 +928,13 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_xdvk6"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_chmro"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1lsr"]
 albedo_color = Color(0.858824, 0.701961, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j8qi1"]
+radius = 0.485218
 
 [sub_resource type="SphereMesh" id="SphereMesh_7pn02"]
 
@@ -945,8 +954,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_q55m8")
 
 [node name="Camera3D" type="Camera3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 0.989589, 0.143924, 0, -0.143924, 0.989589, -0.0138124, 1.58669, 3.64474)
-fov = 40.7
+transform = Transform3D(1, 0, 0, 0, 0.989589, 0.143924, 0, -0.143924, 0.989589, -0.0138124, 1.46861, 2.85526)
+current = true
+fov = 70.7
+
+[node name="Camera3D2" type="Camera3D" parent="Stadium Stuff"]
+transform = Transform3D(0.462189, 0.577117, -0.673288, -0.0897528, 0.785794, 0.611941, 0.882228, -0.222403, 0.414983, -5.16233, 5.1513, 1.95797)
+fov = 61.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Stadium Stuff"]
 transform = Transform3D(1, 0, 0, 0, 0.185529, 0.982639, 0, -0.982639, 0.185529, 0, 0, 0)
@@ -1017,10 +1031,49 @@ transform = Transform3D(7.16, 0, 0, 0, 7.16, 0, 0, 0, 7.16, 0, -3.33104, -11.700
 material_overlay = SubResource("StandardMaterial3D_57m31")
 mesh = SubResource("SphereMesh_k0oj6")
 
+[node name="Home Run" type="Area3D" parent="Stadium Stuff"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 3.28075, -3.34685)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium Stuff/Home Run"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0qyho")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Home Run"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_rmfb7")
+
+[node name="Left Foul" type="Area3D" parent="Stadium Stuff"]
+transform = Transform3D(3.53849, 0, 3.53257, 0, 5, 0, -3.53257, 0, 3.53849, -6.10538, 3.28075, -1.06641)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium Stuff/Left Foul"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0qyho")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Left Foul"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_rmfb7")
+
+[node name="Right Foul" type="Area3D" parent="Stadium Stuff"]
+transform = Transform3D(3.53849, 0, 3.53257, 0, 5, 0, -3.53257, 0, 3.53849, 6.0813, 3.28075, -0.975081)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium Stuff/Right Foul"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_0qyho")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Right Foul"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_rmfb7")
+
 [node name="Player" parent="." instance=ExtResource("1_12clm")]
-transform = Transform3D(-4.37114e-07, 0, -10, 0, 10, 0, 10, 0, -4.37114e-07, 1.02518, 0, 0.776)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1.15363, 0.0139192, 0.776)
 top_level = true
 script = ExtResource("2_p6vti")
+
+[node name="RootNode" parent="Player" index="0"]
+transform = Transform3D(-0.0303118, 0, -0.999541, 0, 1, 0, 0.999541, 0, -0.0303118, 0, 0, 0)
 
 [node name="pCylinder1" parent="Player/RootNode" index="0"]
 transform = Transform3D(0.902242, 0.431229, 3.21757e-16, -0.431229, 0.902242, -8.71707e-17, -3.27893e-16, -6.01019e-17, 1, 0.0497509, 0.151161, 0.0382143)
@@ -1107,12 +1160,22 @@ libraries = {
 autoplay = "Idle"
 
 [node name="Reticle" type="StaticBody3D" parent="Player" groups=["Reticle"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0034105, 0.0794915, 0.0999337)
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -0.115136, 0.0802117, -0.00851773)
+collision_layer = 0
+collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/Reticle"]
-transform = Transform3D(0.005, 0, 5.82077e-11, 0, 0.005, 0, -5.82077e-11, 0, 0.005, 0, 0, 0)
+transform = Transform3D(0.01, 0, 1.16415e-10, 0, 0.01, 0, -1.16415e-10, 0, 0.01, 0, 0, 0)
 material_overlay = SubResource("StandardMaterial3D_ybuf7")
 mesh = SubResource("SphereMesh_xdvk6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Reticle"]
+shape = SubResource("SphereShape3D_chmro")
+
+[node name="ReticleRay" type="RayCast3D" parent="Player/Reticle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000108264, -0.000386097, 8.74698e-06)
+hit_from_inside = true
+collide_with_areas = true
 
 [node name="Pitcher" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0.162964, -11.7821)
@@ -1124,9 +1187,11 @@ mesh = ExtResource("2_r1okx")
 skeleton = NodePath("../..")
 
 [node name="Ball" type="StaticBody3D" parent="." groups=["Ball"]]
-transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, -0.00332513, 0.986151, 0.337809)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00219604, 0.842119, 0.63233)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_j8qi1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ball"]
 mesh = SubResource("SphereMesh_7pn02")
