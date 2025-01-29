@@ -1,5 +1,11 @@
 extends Node3D
 
+signal popFly
+signal grounder
+signal leftFoul
+signal rightFoul
+signal homeRun
+
 var reticle 
 var reticleRay: RayCast3D
 var hitpath
@@ -28,7 +34,7 @@ func handle_reticle():
 func swing(ball):
 	var dist = reticle.global_position.distance_to(ball.global_position)
 	var ang = reticle.global_position.direction_to(ball.global_position)
-	print("dist:", dist, "\nang:", ang)
+	#print("dist:", dist, "\nang:", ang)
 	
 	if dist <= 0.16:
 		print("Home Run!")
@@ -42,8 +48,10 @@ func swing(ball):
 	elif dist > 0.26 and dist <= 0.41:
 		if int(ang.x * 10000) % 2 == 0:
 			print("Pop Fly! Out!")
+			emit_signal("popFly")
 		else:
 			print("Grounder! Out!")
+			emit_signal("grounder")
 	else:
 		print("Miss!")
 	
@@ -77,6 +85,7 @@ func move_player():
 		$AnimationPlayer.play("Swing")
 		draw_debug_ray(ball);
 		
+		print(self.global_position)
 		swing(ball)
 
 func draw_debug_ray(ball):

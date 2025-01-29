@@ -1,9 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://djcfalef8u644"]
+[gd_scene load_steps=30 format=3 uid="uid://djcfalef8u644"]
 
 [ext_resource type="PackedScene" uid="uid://d3kerr6g3u31g" path="res://Models/Joe_Baseball.fbx" id="1_12clm"]
+[ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
 [ext_resource type="ArrayMesh" uid="uid://c1sondp2cc25q" path="res://Models/Pitcher.obj" id="2_r1okx"]
 [ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="4_k6nkp"]
+[ext_resource type="PackedScene" uid="uid://554abpwtsgb0" path="res://Scenes/Prefabs/Fielder.tscn" id="5_mnvti"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
@@ -935,6 +937,7 @@ albedo_color = Color(1, 0, 0, 1)
 albedo_color = Color(0.858824, 0.701961, 0, 1)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_aqsxd")
 
 [node name="Stadium Stuff" type="Node" parent="."]
 
@@ -964,7 +967,7 @@ transform = Transform3D(1, 0, 0, 0, 0.185529, 0.982639, 0, -0.982639, 0.185529, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Stadium Stuff"]
 environment = SubResource("Environment_6y5x6")
 
-[node name="Home Plate" type="StaticBody3D" parent="Stadium Stuff"]
+[node name="Home Plate" type="StaticBody3D" parent="Stadium Stuff" groups=["Home"]]
 transform = Transform3D(0.54, 0, 0, 0, 0.15, 0, 0, 0, 0.48, 0, 0, 0.752475)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Home Plate"]
@@ -1177,6 +1180,9 @@ mesh = ExtResource("2_r1okx")
 skeleton = NodePath("../..")
 
 [node name="Ball" parent="." instance=ExtResource("4_k6nkp")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.94831, 0.367621)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.884683, 0.477028)
+
+[node name="Fielder" parent="." groups=["Fielder"] instance=ExtResource("5_mnvti")]
+transform = Transform3D(0.989543, 0, -0.144235, 0, 1, 0, 0.144235, 0, 0.989543, 3.814, 0, -17.08)
 
 [editable path="Player"]
