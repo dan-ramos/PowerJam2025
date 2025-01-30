@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqhaqp3b5u4b6"]
+
+[ext_resource type="Script" path="res://Scripts/BallCam.gd" id="1_01tpq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5eqoj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4urb1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ai8kl"]
+
+[node name="CutsceneBall" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 4
+mass = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5eqoj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_4urb1")
+mesh = SubResource("SphereMesh_ai8kl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.951094, 0.308901, 0, -0.308901, 0.951094, 0, 1.77368, 4.58121)
+top_level = true
+script = ExtResource("1_01tpq")
