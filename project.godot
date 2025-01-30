@@ -52,3 +52,4 @@ Swing={
 
 3d_physics/layer_1="Ball"
 3d_physics/layer_2="Score Zones"
+3d_physics/layer_3="Cutscene Ball"
