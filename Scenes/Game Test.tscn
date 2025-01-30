@@ -1036,11 +1036,9 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 3.28075, -3.34685)
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium Stuff/Home Run"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0qyho")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Home Run"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_rmfb7")
 
 [node name="Left Foul" type="Area3D" parent="Stadium Stuff"]
@@ -1048,11 +1046,9 @@ transform = Transform3D(3.53849, 0, 3.53257, 0, 5, 0, -3.53257, 0, 3.53849, -6.1
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium Stuff/Left Foul"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0qyho")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Left Foul"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_rmfb7")
 
 [node name="Right Foul" type="Area3D" parent="Stadium Stuff"]
@@ -1060,11 +1056,9 @@ transform = Transform3D(3.53849, 0, 3.53257, 0, 5, 0, -3.53257, 0, 3.53849, 6.08
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Stadium Stuff/Right Foul"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_0qyho")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Right Foul"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_rmfb7")
 
 [node name="Player" parent="." instance=ExtResource("1_12clm")]

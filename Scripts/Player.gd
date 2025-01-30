@@ -28,7 +28,7 @@ func handle_reticle():
 func swing(ball):
 	var dist = reticle.global_position.distance_to(ball.global_position)
 	var ang = reticle.global_position.direction_to(ball.global_position)
-	print("dist:", dist, "\nang:", ang)
+	#print("dist:", dist, "\nang:", ang)
 	
 	if dist <= 0.16:
 		print("Home Run!")

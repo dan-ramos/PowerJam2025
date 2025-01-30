@@ -1,10 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737934839
-::res://Models/::1737934776
+::res://::1738279721
+::res://Models/::1738207868
 Joe_Baseball.fbx::PackedScene::9145467618048995402::1737934776::1737934841::1::::<><>::
+Jumbo_Screen-86409137df3ed4f98504078df62e0fd7_Pillar_Albedo.png::CompressedTexture2D::3950110604949169977::1738030727::1738030730::1::::<><>::
+Jumbo_Screen-e938ef5c2bcdcc5a5828b25c16c6f5dd_Pillar_Albedo.png::CompressedTexture2D::1672724200774856244::1738030711::1738030726::1::::<><>::
+Jumbo_Screen.fbx::PackedScene::2469972973920177912::1738207867::1738207868::1::::<><>::
+Pillar_Albedo.png::CompressedTexture2D::4594559656905357521::1738013923::1738013957::1::::<><>::
 Pitcher.obj::Mesh::6635783536739270856::1737934776::1737934840::1::::<><>::
-::res://Scenes/::1737934776
-Game Test.tscn::PackedScene::7795394568501714883::1737934776::0::1::::<><>::uid://d3kerr6g3u31g::::res://Models/Joe_Baseball.fbx<>res://Scripts/Player.gd<>uid://c1sondp2cc25q::::res://Models/Pitcher.obj
-::res://Scripts/::1737934776
+SteelBeam.obj::Mesh::1979051852788010275::1738013904::1738013910::1::::<><>::
+::res://Models/Jumbo_Screen.fbm/::1738030726
+Pillar_Albedo.png::CompressedTexture2D::4494473128216423929::1738030727::1738030726::1::::<><>::
+::res://Scenes/::1738030725
+Game Test.tscn::PackedScene::7795394568501714883::1738024417::0::1::::<><>::uid://d3kerr6g3u31g::::res://Models/Joe_Baseball.fbx<>res://Scripts/Player.gd<>uid://c1sondp2cc25q::::res://Models/Pitcher.obj
+::res://Scripts/::1738024417
 Draw3D.gd::GDScript::-1::1737934776::0::1::::<>Node<>::
-Player.gd::GDScript::-1::1737934776::0::1::::<>Node<>::
+Player.gd::GDScript::-1::1738024417::0::1::::<>Node3D<>::
