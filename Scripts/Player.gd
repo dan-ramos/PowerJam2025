@@ -6,6 +6,8 @@ signal leftFoul
 signal rightFoul
 signal homeRun
 
+@export var controllable = true
+
 var reticle 
 var reticleRay: RayCast3D
 var hitpath
@@ -14,6 +16,7 @@ var lines = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#sets up some variable names for child nodes
 	reticle = $Reticle
 	reticleRay = $Reticle/ReticleRay
 	
@@ -21,46 +24,53 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	move_player();
+	if controllable:
+		move_player();
 	handle_reticle();
 	
 func handle_reticle():
 	var ball = get_tree().get_first_node_in_group("Ball")
 	var extension = 2
+	#calculates a position beyond the ball based on the reticle's position. mostly for reticle debug lines
 	var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*2, ball.global_position.y * extension*.5 - reticle.global_position.z, ball.global_position.z * extension - reticle.global_position.z)
 	if ball:
 		reticleRay.target_position = beyond
 
+#function to handle bat swings
 func swing(ball):
 	var dist = reticle.global_position.distance_to(ball.global_position)
 	var ang = reticle.global_position.direction_to(ball.global_position)
-	#print("dist:", dist, "\nang:", ang)
 	
+	#this whole block of ifs and elifs determines which type of hit you get. 
+	#each one emits a signal to the game manager script that continues the sequence
 	if dist <= 0.16:
 		print("Home Run!")
-	elif dist > 0.16 and dist <= 0.26:
+		emit_signal("homeRun")
+		
+	elif dist > 0.16 and dist <= 0.32:
 		if ang.x*100 < -45:
 			print("Left Foul")
+			emit_signal("leftFoul")
 		elif ang.x*100 > 45:
 			print("Right Foul")
+			emit_signal("rightFoul")
 		else:
 			print("Home Run!")
-	elif dist > 0.26 and dist <= 0.41:
+			emit_signal("homeRun")
+			
+	elif dist > 0.32 and dist <= 0.45:
 		if int(ang.x * 10000) % 2 == 0:
 			print("Pop Fly! Out!")
 			emit_signal("popFly")
+			
 		else:
 			print("Grounder! Out!")
 			emit_signal("grounder")
+			
 	else:
 		print("Miss!")
 	
-	#if reticleRay.is_colliding():
-		#var collider = reticleRay.get_collider()
-		#print(collider.name)
-		#if collider.is_in_group("ScoreZone"):
-			#print(collider.name)
-
+#handles what the player can do, including moving and swinging the bat
 func move_player():
 	if Input.is_action_pressed("Player_Left") and not Input.is_action_pressed("Player_Right"):
 		self.position.x -= moveSpeed;
@@ -83,15 +93,22 @@ func move_player():
 		var ball = get_tree().get_first_node_in_group("Ball")
 		
 		$AnimationPlayer.play("Swing")
-		draw_debug_ray(ball);
+		#uncomment this next line to show the debug line that doesnt work
+		#draw_debug_ray(ball);
 		
-		print(self.global_position)
 		swing(ball)
 
-func draw_debug_ray(ball):
-	for l in lines:
-		l.queue_free()
-	lines.clear()
-	var extension = 2
-	var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*10, ball.global_position.y * extension*1.5, ball.global_position.z * extension - reticle.global_position.z)
-	lines.append(await Draw3d.line(beyond, reticle.global_position, Color.FIREBRICK))
+#reset the batter for the next pitch
+func upToBat():
+	self.position.x = 1.16
+	$AnimationPlayer.play("Idle")
+	controllable = true
+
+#debug stuff, unused now but kept for idk why
+#func draw_debug_ray(ball):
+	#for l in lines:
+		#l.queue_free()
+	#lines.clear()
+	#var extension = 2
+	#var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*10, ball.global_position.y * extension*1.5, ball.global_position.z * extension - reticle.global_position.z)
+	#lines.append(await Draw3d.line(beyond, reticle.global_position, Color.FIREBRICK))
