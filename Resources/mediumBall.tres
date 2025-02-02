@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BallData" load_steps=2 format=3 uid="uid://do5bpnh52dmu5"]
+
+[ext_resource type="Script" path="res://Scripts/BallScripts/BallData.gd" id="1_uuplf"]
+
+[resource]
+script = ExtResource("1_uuplf")
+speed = 50

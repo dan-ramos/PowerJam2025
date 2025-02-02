@@ -6,7 +6,6 @@
 [ext_resource type="ArrayMesh" uid="uid://c1sondp2cc25q" path="res://Models/Pitcher.obj" id="2_r1okx"]
 [ext_resource type="PackedScene" uid="uid://dod3ktkoe8gpm" path="res://Models/Seats.fbx" id="2_tqevf"]
 [ext_resource type="PackedScene" uid="uid://c2km38hbqln62" path="res://Models/Steps.fbx" id="3_cakcd"]
-[ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="4_k6nkp"]
 [ext_resource type="Texture2D" uid="uid://cj6o6fnii1hw1" path="res://Models/Textures/Pillar_Albedo.png" id="4_pnu8f"]
 [ext_resource type="ArrayMesh" uid="uid://rab5qjyum318" path="res://Models/SteelBeam.obj" id="5_hgkr7"]
 [ext_resource type="PackedScene" uid="uid://554abpwtsgb0" path="res://Scenes/Prefabs/Fielder.tscn" id="5_mnvti"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bin0rid1xrhnm" path="res://Models/SidePanels.fbx" id="12_u3byg"]
 [ext_resource type="PackedScene" uid="uid://brgx4q0b54ti2" path="res://Models/Roof.fbx" id="13_2qfd6"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="19_jp2vq"]
+[ext_resource type="Script" path="res://Scripts/PitchingMarker.gd" id="20_7osr2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
@@ -1780,9 +1780,6 @@ material_overlay = SubResource("StandardMaterial3D_b1lsr")
 mesh = ExtResource("2_r1okx")
 skeleton = NodePath("../..")
 
-[node name="Ball" parent="." instance=ExtResource("4_k6nkp")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.884683, 0.477028)
-
 [node name="Fielder" parent="." groups=["Fielder"] instance=ExtResource("5_mnvti")]
 transform = Transform3D(0.989543, 0, -0.144235, 0, 1, 0, 0.144235, 0, 0.989543, 3.814, 0, -17.08)
 
@@ -1825,5 +1822,9 @@ volume_db = -13.206
 
 [node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
 volume_db = -13.206
+
+[node name="PitchingMarker" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86677, -11.1571)
+script = ExtResource("20_7osr2")
 
 [editable path="Player"]
