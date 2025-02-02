@@ -207,7 +207,7 @@ texture_normal = ExtResource("10_wibui")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("11_2xalg")
-scene_to_go_to = "res://Scenes/Game Test.tscn"
+scene_to_go_to = "res://Scenes/MainGame.tscn"
 
 [node name="TitleScreenBanter" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStream_bb3qo")
