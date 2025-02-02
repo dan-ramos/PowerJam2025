@@ -30,8 +30,8 @@ default_font_size = 493
 [node name="TitleScene" type="Node2D"]
 
 [node name="SamCurtis" type="Sprite2D" parent="."]
-position = Vector2(1004.22, 540.375)
-scale = Vector2(0.0817355, 0.0818772)
+position = Vector2(1647.11, 1079.69)
+scale = Vector2(0.171742, 0.176243)
 texture = ExtResource("1_vbrq7")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SamCurtis"]
@@ -52,7 +52,7 @@ rotation = 0.147189
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 98
 text = "ACCESSIBILITY SME
-BY CURTIS"
+ = CURTIS!!!!!"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="SamCurtis"]
 offset_left = 58.4966
@@ -74,8 +74,8 @@ theme_override_colors/default_color = Color(1, 0, 1, 1)
 text = "Curtis Schneidereit"
 
 [node name="Miley" type="Sprite2D" parent="."]
-position = Vector2(1028, 86)
-scale = Vector2(0.359907, 0.367816)
+position = Vector2(1689, 170)
+scale = Vector2(0.67202, 0.70546)
 texture = ExtResource("2_c062w")
 
 [node name="TextureButton" type="TextureButton" parent="Miley"]
@@ -122,8 +122,8 @@ Character Designer
 Also wrote the title theme!"
 
 [node name="Gary" type="Sprite2D" parent="."]
-position = Vector2(1027, 380)
-scale = Vector2(0.295, 0.29)
+position = Vector2(1684, 730)
+scale = Vector2(0.5875, 0.585)
 texture = ExtResource("4_gr7ht")
 
 [node name="TextureButton2" type="TextureButton" parent="Gary"]
@@ -138,10 +138,10 @@ script = ExtResource("5_mhelk")
 link_to_open = "https://bsky.app/profile/darionpm.bsky.social"
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="Gary"]
-offset_left = -718.644
-offset_top = -255.172
-offset_right = -179.644
-offset_bottom = -52.1725
+offset_left = -760.851
+offset_top = -264.957
+offset_right = -210.851
+offset_bottom = -55.9572
 theme = SubResource("Theme_myf5q")
 theme_override_font_sizes/normal_font_size = 180
 text = "Darion"
@@ -159,8 +159,8 @@ text = "2D Texture + Sprite Artist
 "
 
 [node name="Dan" type="Sprite2D" parent="."]
-position = Vector2(1027, 236)
-scale = Vector2(0.107735, 0.107408)
+position = Vector2(1688, 446)
+scale = Vector2(0.203269, 0.192606)
 texture = ExtResource("5_3b683")
 
 [node name="TextureButton3" type="TextureButton" parent="Dan"]
@@ -200,9 +200,9 @@ Sound Designer"
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = 3.0
-offset_top = 397.0
-offset_right = 245.0
-offset_bottom = 645.0
+offset_top = 805.0
+offset_right = 460.0
+offset_bottom = 1278.0
 texture_normal = ExtResource("10_wibui")
 ignore_texture_size = true
 stretch_mode = 0

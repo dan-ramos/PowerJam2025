@@ -35,10 +35,15 @@ func _ready():
 	player.connect("leftFoul", leftFoul)
 	player.connect("rightFoul", rightFoul)
 	fielder.connect("finished", resetForNextPitch)
+	pitcher.connect("strike", strike)
 	rng = RandomNumberGenerator.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	handleUI()
+	if player.getHP() <= 0:
+		get_tree().change_scene_to_file('res://Scenes/TitleScene.tscn')
+	
 	#protections for when a ball is flying home run or foul, can't control the character etc
 	if balltime:
 		player.controllable = false
@@ -54,6 +59,15 @@ func handlePitching(delta):
 	elif pitchTimer > timeTilNextBall and not pitching:
 		pitcher.pitch()
 		pitching = true
+		
+
+func handleUI():
+	$UI/hpLabel.text = str(player.getHP())
+
+func strike():
+	player.strike()
+	audioManager.playHitSound("Strike", 1)
+	resetForNextPitch()
 
 #reset the game for the next pitch, everybody back to positions
 func resetForNextPitch():
@@ -65,6 +79,7 @@ func resetForNextPitch():
 	pitcher.reset()
 	pitching = false
 	pitchTimer = 0
+	$PitchingMarker.reset()
 
 #randomly generates an x/z coordinate for the fielder to run to. could prob be in the fielder code but whatever
 func getCatchDest():
@@ -78,19 +93,24 @@ func popFly():
 	fielder.popFly(getCatchDest())
 	audioManager.playHitSound("PopFly", 1)
 	balltime = true
+	$PitchingMarker.ballHit()
 func homeRun():
 	sendBall("homeRun")
 	audioManager.playHitSound("HomeRun", 1)
+	$PitchingMarker.ballHit()
 func grounder():
 	fielder.grounder(getCatchDest())
 	audioManager.playHitSound("Grounder", 1)
+	$PitchingMarker.ballHit()
 	balltime = true
 func leftFoul():
 	sendBall("leftFoul")
 	audioManager.playHitSound("Foul", 1)
+	$PitchingMarker.ballHit()
 func rightFoul():
 	sendBall("rightFoul")
 	audioManager.playHitSound("Foul", 1)
+	$PitchingMarker.ballHit()
 
 #instantiates a fake ball for the "cutscene" of a ball flying out of the stadium
 func sendBall(type):
