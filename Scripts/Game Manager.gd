@@ -5,16 +5,20 @@ var timer = 0
 
 var timeTilNextBall = 2
 var pitchTimer = 0
+var pitchAnimTime = 1
+var pitchAnimTimer = 0
 
 var balltime = false
 
 var audioManager
 
+var damage = 0
 var player
 var rng
 var fielder
 var ballSpawn
 var pitcher
+var pitchBot
 var pitching = false
 var newball
 var cutsceneBall = preload("res://Scenes/Prefabs/cutsceneBall.tscn")
@@ -26,6 +30,7 @@ func _ready():
 	ballSpawn = $"Stadium Stuff/BallSpawnPoint"
 	audioManager = $"BGM + Audio Manager"
 	pitcher = $PitchingMarker
+	pitchBot = $PitchBot
 	fielder = get_tree().get_first_node_in_group("Fielder")
 	
 	#connects player/fielder signals to functions placed here
@@ -59,14 +64,12 @@ func handlePitching(delta):
 	elif pitchTimer > timeTilNextBall and not pitching:
 		pitcher.pitch()
 		pitching = true
-		
 
 func handleUI():
 	$UI/TextureRect.texture = load("res://Images/batteries/battery" + str(player.getHP()) + ".png")
-	print("res://Images/batteries/battery" + str(player.getHP()) + ".png")
 
 func strike():
-	player.ouch()
+	damage = 1
 	audioManager.playHitSound("Strike", 1)
 	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/Srike.png")
 	$HitMessage/AnimationPlayer.play("show")
@@ -74,6 +77,7 @@ func strike():
 
 #reset the game for the next pitch, everybody back to positions
 func resetForNextPitch():
+	player.ouch(damage)
 	player.upToBat()
 	if newball != null:
 		newball.queue_free()
@@ -82,7 +86,9 @@ func resetForNextPitch():
 	pitcher.reset()
 	pitching = false
 	pitchTimer = 0
+	damage = 0
 	$PitchingMarker.reset()
+	pitchBot.pitch()
 
 #randomly generates an x/z coordinate for the fielder to run to. could prob be in the fielder code but whatever
 func getCatchDest():
@@ -93,7 +99,7 @@ func getCatchDest():
 
 #signal connect functions, most call sendBall() below
 func popFly():
-	player.ouch()
+	damage = 1
 	fielder.popFly(getCatchDest())
 	audioManager.playHitSound("PopFly", 1)
 	balltime = true
@@ -101,13 +107,14 @@ func popFly():
 	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/out.png")
 	$HitMessage/AnimationPlayer.play("show")
 func homeRun():
+	damage = 0
 	sendBall("homeRun")
 	audioManager.playHitSound("HomeRun", 1)
 	$PitchingMarker.ballHit()
 	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/HOmerun.png")
 	$HitMessage/AnimationPlayer.play("show")
 func grounder():
-	player.ouch()
+	damage = 1
 	fielder.grounder(getCatchDest())
 	audioManager.playHitSound("Grounder", 1)
 	$PitchingMarker.ballHit()
@@ -115,12 +122,14 @@ func grounder():
 	$HitMessage/AnimationPlayer.play("show")
 	balltime = true
 func leftFoul():
+	damage = 0
 	sendBall("leftFoul")
 	audioManager.playHitSound("Foul", 1)
 	$PitchingMarker.ballHit()
 	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/foul.png")
 	$HitMessage/AnimationPlayer.play("show")
 func rightFoul():
+	damage = 0
 	sendBall("rightFoul")
 	audioManager.playHitSound("Foul", 1)
 	$PitchingMarker.ballHit()

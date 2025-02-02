@@ -215,7 +215,10 @@ volume_db = -3.268
 script = ExtResource("12_1brem")
 
 [node name="BgmPlayer" type="AudioStreamPlayer" parent="TitleScreenBanter"]
-volume_db = -21.236
+volume_db = -27.226
+
+[node name="ambient crowd" type="AudioStreamPlayer" parent="TitleScreenBanter"]
+volume_db = -23.959
 
 [connection signal="pressed" from="Miley/TextureButton" to="Miley/TextureButton" method="_on_pressed"]
 [connection signal="pressed" from="Miley/TextureButton4" to="Miley/TextureButton4" method="_on_pressed"]

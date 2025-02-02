@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd2kyv7q6gae3"]
+
+[ext_resource type="PackedScene" uid="uid://dxh4f8s4pk08g" path="res://Models/BiggieBatter.fbx" id="1_w7jw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y28c7"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jmdpl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uqarf"]
+
+[node name="BiggieBatter" instance=ExtResource("1_w7jw1")]
+transform = Transform3D(-8.74228e-07, 0, -20, 0, 20, 0, 20, 0, -8.74228e-07, 0, 0, 0)
+
+[node name="Reticle" type="StaticBody3D" parent="." index="2" groups=["Reticle"]]
+transform = Transform3D(1.32, 0, 0, 0, 1.32, 0, 0, 0, 1.32, -0.073217, 0.170307, -0.00851774)
+collision_layer = 0
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Reticle" index="0"]
+transform = Transform3D(0.01, 0, 1.16415e-10, 0, 0.01, 0, -1.16415e-10, 0, 0.01, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_y28c7")
+mesh = SubResource("SphereMesh_jmdpl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reticle" index="1"]
+shape = SubResource("SphereShape3D_uqarf")
+disabled = true
+
+[node name="ReticleRay" type="RayCast3D" parent="Reticle" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000108264, -0.000386097, 8.74698e-06)
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="HitSound" type="AudioStreamPlayer" parent="." index="3"]
+volume_db = -25.746

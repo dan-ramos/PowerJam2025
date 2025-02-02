@@ -1097,6 +1097,7 @@ transform = Transform3D(1, 0, 0, 0, 0.732246, -0.68104, 0, 0.68104, 0.732246, 0,
 [node name="Player" parent="." instance=ExtResource("1_12clm")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1.15363, 0.0139192, 0.776)
 top_level = true
+visible = false
 script = ExtResource("2_p6vti")
 
 [node name="RootNode" parent="Player" index="0"]
