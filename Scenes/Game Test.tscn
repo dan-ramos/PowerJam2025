@@ -1,11 +1,23 @@
-[gd_scene load_steps=28 format=3 uid="uid://djcfalef8u644"]
+[gd_scene load_steps=44 format=3 uid="uid://djcfalef8u644"]
 
 [ext_resource type="PackedScene" uid="uid://d3kerr6g3u31g" path="res://Models/Joe_Baseball.fbx" id="1_12clm"]
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
 [ext_resource type="ArrayMesh" uid="uid://c1sondp2cc25q" path="res://Models/Pitcher.obj" id="2_r1okx"]
+[ext_resource type="PackedScene" uid="uid://dod3ktkoe8gpm" path="res://Models/Seats.fbx" id="2_tqevf"]
+[ext_resource type="PackedScene" uid="uid://c2km38hbqln62" path="res://Models/Steps.fbx" id="3_cakcd"]
 [ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="4_k6nkp"]
+[ext_resource type="Texture2D" uid="uid://cj6o6fnii1hw1" path="res://Models/Textures/Pillar_Albedo.png" id="4_pnu8f"]
+[ext_resource type="ArrayMesh" uid="uid://rab5qjyum318" path="res://Models/SteelBeam.obj" id="5_hgkr7"]
 [ext_resource type="PackedScene" uid="uid://554abpwtsgb0" path="res://Scenes/Prefabs/Fielder.tscn" id="5_mnvti"]
+[ext_resource type="PackedScene" uid="uid://cxolmgvjop4rw" path="res://Models/Jumbo_Screen.fbx" id="6_gscqp"]
+[ext_resource type="PackedScene" uid="uid://0ncy4atyvwns" path="res://Models/Long_Billboard.fbx" id="7_0tj3f"]
+[ext_resource type="Texture2D" uid="uid://c7g2awwfbfknh" path="res://Models/Textures/FanFlag-559fc7b5f77be8be41bd6ddb537d22ea_USA_FanFlag.png" id="8_18igh"]
+[ext_resource type="PackedScene" uid="uid://cdxpmua7teohj" path="res://Models/Lights.fbx" id="9_a8gi0"]
+[ext_resource type="Texture2D" uid="uid://d134r88wnkv3a" path="res://Models/Textures/FoulPole_Albedo.png" id="10_p5mjx"]
+[ext_resource type="ArrayMesh" uid="uid://dd8dykpsktqpg" path="res://Models/FoulPole.obj" id="11_wate6"]
+[ext_resource type="PackedScene" uid="uid://bin0rid1xrhnm" path="res://Models/SidePanels.fbx" id="12_u3byg"]
+[ext_resource type="PackedScene" uid="uid://brgx4q0b54ti2" path="res://Models/Roof.fbx" id="13_2qfd6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
@@ -41,6 +53,20 @@ albedo_color = Color(0.0666667, 0.780392, 0, 1)
 albedo_color = Color(0.729412, 0.4, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_k0oj6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ebq"]
+transparency = 1
+albedo_texture = ExtResource("10_p5mjx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tctql"]
+transparency = 1
+albedo_texture = ExtResource("4_pnu8f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trigv"]
+transparency = 1
+albedo_texture = ExtResource("8_18igh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e6iiu"]
 
 [sub_resource type="Animation" id="Animation_3g1r0"]
 resource_name = "Idle"
@@ -933,6 +959,7 @@ albedo_color = Color(1, 0, 0, 1)
 albedo_color = Color(0.858824, 0.701961, 0, 1)
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(0.997572, 0, 0, 0, 0.997572, 0, 0, 0, 0.997572, 0, 0, 0)
 script = ExtResource("1_aqsxd")
 
 [node name="Stadium Stuff" type="Node" parent="."]
@@ -1031,6 +1058,601 @@ mesh = SubResource("SphereMesh_k0oj6")
 [node name="BallSpawnPoint" type="Marker3D" parent="Stadium Stuff"]
 transform = Transform3D(1, 0, 0, 0, 0.732246, -0.68104, 0, 0.68104, 0.732246, 0, 2.7058, 0.685676)
 
+[node name="Seats" parent="Stadium Stuff" instance=ExtResource("2_tqevf")]
+transform = Transform3D(14.9694, 0, 8.05715, 0, 17, 0, -8.05715, 0, 14.9694, -26.8158, 2.57029, -63.8894)
+
+[node name="Seats2" parent="Stadium Stuff/Seats" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.868173, 0, 0.496262, 0, 1, 0, -0.496262, 0, 0.868173, -1.10675, 0, 0.29246)
+
+[node name="Seats3" parent="Stadium Stuff/Seats" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -1.90203, 5.96046e-08, 1.11036)
+
+[node name="Seats4" parent="Stadium Stuff/Seats" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -2.30198, 5.96046e-08, 1.85342)
+
+[node name="Steps" parent="Stadium Stuff/Seats" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.967766, 0, 0.25185, 0, 1, 0, -0.25185, 0, 0.967766, -0.589801, -1.70916e-05, 0.0106378)
+
+[node name="Steps2" parent="Stadium Stuff/Seats" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.705612, 0, 0.708598, 0, 1, 0, -0.708598, 0, 0.705612, -1.60992, -1.70916e-05, 0.594544)
+
+[node name="Seats5" parent="Stadium Stuff/Seats" instance=ExtResource("2_tqevf")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0826349, 0.495455, -0.161728)
+
+[node name="Seats2" parent="Stadium Stuff/Seats/Seats5" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.868173, 0, 0.496262, 0, 1, 0, -0.496262, 0, 0.868173, -1.10675, 0, 0.292461)
+
+[node name="Seats3" parent="Stadium Stuff/Seats/Seats5" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -1.90203, 5.96046e-08, 1.11036)
+
+[node name="Seats4" parent="Stadium Stuff/Seats/Seats5" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -2.30198, 5.96046e-08, 1.85342)
+
+[node name="Steps" parent="Stadium Stuff/Seats/Seats5" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.967766, 0, 0.25185, 0, 1, 0, -0.25185, 0, 0.967766, -0.589801, -1.70916e-05, 0.0106378)
+
+[node name="Steps2" parent="Stadium Stuff/Seats/Seats5" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.705612, 0, 0.708598, 0, 1, 0, -0.708598, 0, 0.705612, -1.60992, -1.70916e-05, 0.594544)
+
+[node name="Seats2" parent="Stadium Stuff" instance=ExtResource("2_tqevf")]
+transform = Transform3D(-14.9694, 0, -8.05715, 0, 17, 0, -8.05715, 0, 14.9694, 26.8158, 2.57029, -63.8894)
+
+[node name="Seats2" parent="Stadium Stuff/Seats2" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.868173, 0, 0.496262, 0, 1, 0, -0.496262, 0, 0.868173, -1.10675, 0, 0.29246)
+
+[node name="Seats3" parent="Stadium Stuff/Seats2" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -1.90203, 5.96046e-08, 1.11036)
+
+[node name="Seats4" parent="Stadium Stuff/Seats2" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -2.30198, 5.96046e-08, 1.85342)
+
+[node name="Steps" parent="Stadium Stuff/Seats2" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.967766, 0, 0.25185, 0, 1, 0, -0.25185, 0, 0.967766, -0.589801, -1.70916e-05, 0.0106378)
+
+[node name="Steps2" parent="Stadium Stuff/Seats2" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.705612, 0, 0.708598, 0, 1, 0, -0.708598, 0, 0.705612, -1.60992, -1.70916e-05, 0.594544)
+
+[node name="Seats5" parent="Stadium Stuff/Seats2" instance=ExtResource("2_tqevf")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -0.0826349, 0.495455, -0.161728)
+
+[node name="Seats2" parent="Stadium Stuff/Seats2/Seats5" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.868173, 0, 0.496262, 0, 1, 0, -0.496262, 0, 0.868173, -1.10675, 0, 0.29246)
+
+[node name="Seats3" parent="Stadium Stuff/Seats2/Seats5" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -1.90203, 5.96046e-08, 1.11036)
+
+[node name="Seats4" parent="Stadium Stuff/Seats2/Seats5" instance=ExtResource("2_tqevf")]
+transform = Transform3D(0.47395, 0, 0.880552, 0, 1, 0, -0.880552, 0, 0.47395, -2.30198, 5.96046e-08, 1.85342)
+
+[node name="Steps" parent="Stadium Stuff/Seats2/Seats5" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.967766, 0, 0.25185, 0, 1, 0, -0.25185, 0, 0.967766, -0.589801, -1.70916e-05, 0.0106378)
+
+[node name="Steps2" parent="Stadium Stuff/Seats2/Seats5" instance=ExtResource("3_cakcd")]
+transform = Transform3D(0.705612, 0, 0.708598, 0, 1, 0, -0.708598, 0, 0.705612, -1.60992, -1.70916e-05, 0.594544)
+
+[node name="Jumbo Screen" parent="Stadium Stuff" instance=ExtResource("6_gscqp")]
+transform = Transform3D(67.0878, 0, 0, 0, 67.0878, 0, 0, 0, 67.0878, 0, 0, -78.6008)
+
+[node name="LongScreen" parent="Stadium Stuff" instance=ExtResource("7_0tj3f")]
+transform = Transform3D(30.1943, 0, -17.4861, 0, 34.8921, 0, 17.4861, 0, 30.1943, 34.7088, 33.7962, -67.7624)
+visible = false
+
+[node name="LongScreen2" parent="Stadium Stuff" instance=ExtResource("7_0tj3f")]
+transform = Transform3D(-30.1943, 0, 17.4861, 0, 34.8921, 0, 17.4861, 0, 30.1943, -34.7088, 33.7962, -67.7624)
+visible = false
+
+[node name="Flags" type="Node3D" parent="Stadium Stuff"]
+
+[node name="L_FoulPole" type="MeshInstance3D" parent="Stadium Stuff"]
+transform = Transform3D(0.102215, 0, 0.109782, 0, 0.15, 0, -0.109782, 0, 0.102215, -35.524, 0, -34.5846)
+material_override = SubResource("StandardMaterial3D_72ebq")
+mesh = ExtResource("11_wate6")
+skeleton = NodePath("../..")
+
+[node name="R_FoulPole" type="MeshInstance3D" parent="Stadium Stuff"]
+transform = Transform3D(-0.102215, -8.93596e-09, -0.109782, -1.31134e-08, 0.15, 0, -0.109782, -9.59741e-09, 0.102215, 35.524, 0, -34.5846)
+material_override = SubResource("StandardMaterial3D_72ebq")
+mesh = ExtResource("11_wate6")
+skeleton = NodePath("../..")
+
+[node name="SidePanel" parent="Stadium Stuff" instance=ExtResource("12_u3byg")]
+transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0, -62.5737)
+
+[node name="SidePanel2" parent="Stadium Stuff/SidePanel" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.903672, 0, 0.428225, 0, 1, 0, -0.428225, 0, 0.903672, -1.0832, 0, 0.24197)
+
+[node name="SidePanel3" parent="Stadium Stuff/SidePanel/SidePanel2" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.847632, 0, 0.530585, 0, 1, 0, -0.530585, 0, 0.847632, -1.04907, -1.12197e-07, 0.306412)
+
+[node name="SidePanel4" parent="Stadium Stuff/SidePanel/SidePanel2/SidePanel3" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.842452, 0, 0.538771, 0, 1, 0, -0.538771, 0, 0.842452, -1.05173, 1.12197e-07, 0.311298)
+
+[node name="SidePanel3" parent="Stadium Stuff/SidePanel" instance=ExtResource("12_u3byg")]
+transform = Transform3D(-0.903672, 0, -0.428225, 0, 1, 0, -0.428225, 0, 0.903672, 1.0832, 0, 0.24197)
+
+[node name="SidePanel3" parent="Stadium Stuff/SidePanel/SidePanel3" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.847632, 0, 0.530585, 0, 1, 0, -0.530585, 0, 0.847632, -1.04907, -1.12197e-07, 0.306412)
+
+[node name="SidePanel4" parent="Stadium Stuff/SidePanel/SidePanel3/SidePanel3" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.842452, 0, 0.538771, 0, 1, 0, -0.538771, 0, 0.842452, -1.05173, 1.12197e-07, 0.311298)
+
+[node name="Beams" type="Node3D" parent="Stadium Stuff"]
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.219334, 0, -0.147676, 0, 0.264416, 0, -0.147676, 0, 0.219334, 38.2762, 1.82853, -64.2268)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam7" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.15672, 0, -0.212966, 0, 0.264416, 0, -0.212966, 0, 0.15672, 41.3975, 1.82853, -61.457)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam8" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.106095, 0, -0.242197, 0, 0.264416, 0, -0.242197, 0, 0.106095, 51.0069, 1.82853, -46.5172)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam11" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.0182468, 0, -0.263785, 0, 0.264416, 0, -0.263785, 0, 0.0182468, 51.9643, 10.7743, -42.8407)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam12" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.106095, 0, -0.242197, 0, 0.264416, 0, -0.242197, 0, 0.106095, 51.0069, 10.7743, -46.5172)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam13" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.15672, 0, -0.212966, 0, 0.264416, 0, -0.212966, 0, 0.15672, 41.3975, 10.7743, -61.457)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam14" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.219334, 0, -0.147676, 0, 0.264416, 0, -0.147676, 0, 0.219334, 38.2762, 10.7743, -64.2268)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam16" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(-0.0182468, 0, -0.263785, 0, 0.264416, 0, -0.263785, 0, 0.0182468, 51.9643, 1.82853, -42.8407)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam6" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(0.219334, 0, 0.147676, 0, 0.264416, 0, -0.147676, 0, 0.219334, -38.2762, 1.82853, -64.2268)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam9" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(0.15672, 0, 0.212966, 0, 0.264416, 0, -0.212966, 0, 0.15672, -41.3975, 1.82853, -61.457)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam10" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(0.106095, 0, 0.242197, 0, 0.264416, 0, -0.242197, 0, 0.106095, -51.0069, 1.82853, -46.5172)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="SteelBeam20" type="MeshInstance3D" parent="Stadium Stuff/Beams"]
+transform = Transform3D(0.0182468, 0, 0.263785, 0, 0.264416, 0, -0.263785, 0, 0.0182468, -51.9643, 1.82853, -42.8407)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../..")
+
+[node name="Flags2" type="Node3D" parent="Stadium Stuff"]
+
+[node name="FanFlag" type="MeshInstance3D" parent="Stadium Stuff/Flags2"]
+transform = Transform3D(1.00707, 2.20363, -2.40536e-08, 5.74797e-15, -2.00882e-07, -1.14761, -0.550283, 4.03287, -4.40205e-08, -22.1455, 10.5297, -64.8577)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.68368, 0.00270557, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57334, -0.0120325, 9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag/FanFlag2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.70448, 0.0135832, -9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag/FanFlag2/FanFlag3/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57531, -0.0301332, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2"]
+transform = Transform3D(0.595348, 3.92888, -4.28854e-08, 9.49189e-15, -2.00882e-07, -1.14761, -0.981104, 2.3841, -2.60235e-08, -36.8952, 10.5297, -55.4804)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.68368, 0.00270557, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag2/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57334, -0.0120325, 9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag2/FanFlag2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.70448, 0.0135832, -9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag2/FanFlag2/FanFlag3/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57531, -0.0301332, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2"]
+transform = Transform3D(0.0460556, 4.59195, -5.01231e-08, 1.12347e-14, -2.00882e-07, -1.14761, -1.14668, 0.184432, -2.01315e-09, -44.7279, 10.5297, -39.9853)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.68368, 0.00270557, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag3/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57334, -0.0120325, 9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag3/FanFlag2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.70448, 0.0135832, -9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag3/FanFlag2/FanFlag3/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57531, -0.0301332, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2"]
+transform = Transform3D(-1.00707, -2.20363, 2.40536e-08, 5.74797e-15, -2.00882e-07, -1.14761, -0.550283, 4.03287, -4.40205e-08, 22.1455, 10.5297, -64.8577)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.68368, 0.00270557, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag4/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57334, -0.0120325, 9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag4/FanFlag2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.70448, 0.0135832, -9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag4/FanFlag2/FanFlag3/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57531, -0.0301332, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2"]
+transform = Transform3D(-0.595348, -3.92888, 4.28854e-08, 9.49189e-15, -2.00882e-07, -1.14761, -0.981104, 2.3841, -2.60235e-08, 36.8952, 10.5297, -55.4804)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag5"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.68368, 0.00270557, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag5/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57334, -0.0120325, 9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag5/FanFlag2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.70448, 0.0135832, -9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag5/FanFlag2/FanFlag3/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57531, -0.0301332, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../../..")
+
+[node name="FanFlag6" type="MeshInstance3D" parent="Stadium Stuff/Flags2"]
+transform = Transform3D(-0.0460556, -4.59195, 5.01231e-08, 1.12347e-14, -2.00882e-07, -1.14761, -1.14668, 0.184432, -2.01315e-09, 44.7279, 10.5297, -39.9853)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../..")
+
+[node name="FanFlag2" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag6"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.68368, 0.00270557, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../..")
+
+[node name="FanFlag3" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag6/FanFlag2"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57334, -0.0120325, 9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../..")
+
+[node name="FanFlag4" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag6/FanFlag2/FanFlag3"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.70448, 0.0135832, -9.53674e-07)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../..")
+
+[node name="FanFlag5" type="MeshInstance3D" parent="Stadium Stuff/Flags2/FanFlag6/FanFlag2/FanFlag3/FanFlag4"]
+transform = Transform3D(1, 1.19209e-07, 0, -7.45058e-09, 1, 0, -1.77636e-15, -1.42109e-14, 1, -2.57531, -0.0301332, 0)
+material_override = SubResource("StandardMaterial3D_trigv")
+mesh = SubResource("PlaneMesh_e6iiu")
+skeleton = NodePath("../../../../../..")
+
+[node name="L Roof" parent="Stadium Stuff" instance=ExtResource("13_2qfd6")]
+transform = Transform3D(10.1, 0, 0, 0, 10.1, 0, 0, 0, 10.1, -48.2436, 15.2624, -34.0857)
+
+[node name="L Roof2" parent="Stadium Stuff" instance=ExtResource("13_2qfd6")]
+transform = Transform3D(-10.1, 0, 0, 0, 10.1, 0, 0, 0, 10.1, 48.2436, 15.2624, -34.0857)
+
+[node name="Lights" type="Node3D" parent="Stadium Stuff"]
+
+[node name="Lights2" parent="Stadium Stuff/Lights" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-27.8717, 0.0156599, 15.6188, 0.0125368, 31.9497, -0.00966207, 15.6188, 0.00230079, 27.8717, -36.8392, 19.4595, -73.237)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights2"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights2/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights2/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights3" parent="Stadium Stuff/Lights" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-31.8626, 0.013215, 2.35688, 0.0125368, 31.9497, -0.00966207, 2.35688, 0.00871146, 31.8626, -19.7898, 19.4595, -77.4603)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights3"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights3/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights3/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights4" parent="Stadium Stuff/Lights" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-16.9334, 0.0150061, 27.0932, 0.0127194, 31.9497, -0.00974605, 27.0932, -0.00562003, 16.9334, -49.2445, 19.4595, -62.1952)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights4"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights4/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights4/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights5" parent="Stadium Stuff/Lights" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-9.96444, 0.0132272, 30.3561, 0.0127194, 31.9497, -0.00974605, 30.3561, -0.00904489, 9.96444, -57.7797, 19.4595, -46.6189)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights5"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights5/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights5/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights6" parent="Stadium Stuff/Lights" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-0.0521474, 0.00976728, 31.9496, 0.0127194, 31.9497, -0.00974605, 31.9496, -0.0127031, 0.0521538, -59.753, 19.4595, -27.0555)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights6"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights6/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights/Lights6/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights2" type="Node3D" parent="Stadium Stuff"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Lights2" parent="Stadium Stuff/Lights2" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-27.8717, 0.0156599, 15.6188, 0.0125368, 31.9497, -0.00966207, 15.6188, 0.00230079, 27.8717, -36.8392, 19.4595, -73.237)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights2"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights2/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights2/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights3" parent="Stadium Stuff/Lights2" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-31.8626, 0.013215, 2.35688, 0.0125368, 31.9497, -0.00966207, 2.35688, 0.00871146, 31.8626, -19.7898, 19.4595, -77.4603)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights3"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights3/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights3/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights4" parent="Stadium Stuff/Lights2" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-16.9334, 0.0150061, 27.0932, 0.0127194, 31.9497, -0.00974605, 27.0932, -0.00562003, 16.9334, -49.2445, 19.4595, -62.1952)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights4"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights4/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights4/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights5" parent="Stadium Stuff/Lights2" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-9.96444, 0.0132272, 30.3561, 0.0127194, 31.9497, -0.00974605, 30.3561, -0.00904489, 9.96444, -57.7797, 19.4595, -46.6189)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights5"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights5/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights5/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
+[node name="Lights6" parent="Stadium Stuff/Lights2" instance=ExtResource("9_a8gi0")]
+transform = Transform3D(-0.0521474, 0.00976728, 31.9496, 0.0127194, 31.9497, -0.00974605, 31.9496, -0.0127031, 0.0521538, -59.753, 19.4595, -27.0555)
+
+[node name="SteelBeam5" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights6"]
+transform = Transform3D(5.95087e-05, 1.7053e-13, 0.0082758, -8.49099e-13, 0.00827601, 1.0143e-12, -0.00827579, -7.24754e-13, 5.9511e-05, -0.00226128, -0.582961, -0.00830817)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../..")
+
+[node name="SteelBeam3" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights6/SteelBeam5"]
+transform = Transform3D(1, -6.63931e-11, 5.96046e-08, 1.39607e-10, 1, -4.11546e-11, 5.96046e-08, -4.97948e-11, 1, 0.0254517, 41.731, 0.0325623)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../..")
+
+[node name="SteelBeam4" type="MeshInstance3D" parent="Stadium Stuff/Lights2/Lights6/SteelBeam5/SteelBeam3"]
+transform = Transform3D(1, 8.68567e-11, -5.96046e-08, 6.82121e-12, 1, 4.06999e-11, -8.9407e-08, 9.39053e-11, 1, 0, 41.7382, -1.52588e-05)
+material_override = SubResource("StandardMaterial3D_tctql")
+mesh = ExtResource("5_hgkr7")
+skeleton = NodePath("../../../../../..")
+
 [node name="Player" parent="." instance=ExtResource("1_12clm")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 1.15363, 0.0139192, 0.776)
 top_level = true
@@ -1044,10 +1666,11 @@ transform = Transform3D(0.902242, 0.431229, 3.21757e-16, -0.431229, 0.902242, -8
 
 [node name="Skeleton3D" parent="Player/RootNode" index="5"]
 bones/0/rotation = Quaternion(0.0350063, -0.0350063, 0.70624, 0.70624)
+bones/2/rotation = Quaternion(1.73239e-18, 9.00409e-20, 0.0519051, 0.998652)
 bones/3/rotation = Quaternion(-0.302195, 5.44885e-17, 1.18143e-17, 0.953246)
 bones/4/rotation = Quaternion(9.81308e-18, 2.94392e-17, -0.707107, 0.707107)
 bones/5/rotation = Quaternion(0.127043, -0.435365, -0.618628, 0.641573)
-bones/7/rotation = Quaternion(-0.543127, 0.813396, -0.0699562, 0.196228)
+bones/7/rotation = Quaternion(-0.543127, 0.813396, -0.0699561, 0.196228)
 bones/8/rotation = Quaternion(-1.51333e-17, -0.0224056, -5.58643e-17, 0.999749)
 bones/9/rotation = Quaternion(2.97678e-17, 0.000724987, -2.77558e-15, 1)
 bones/10/rotation = Quaternion(-3.24661e-18, 0.0106365, 1.60995e-15, 0.999943)
@@ -1067,7 +1690,9 @@ bones/24/rotation = Quaternion(-3.48186e-17, -0.317077, 3.22222e-15, 0.9484)
 bones/25/rotation = Quaternion(3.57205e-17, 0.0244448, 3.08092e-15, 0.999701)
 bones/26/rotation = Quaternion(-3.1898e-17, -0.0701941, -5.7893e-17, 0.997533)
 bones/27/rotation = Quaternion(4.29302e-17, 0.36017, 4.29302e-17, 0.932887)
-bones/28/rotation = Quaternion(-0.124048, 0.518848, 0.418967, 0.734762)
+bones/28/rotation = Quaternion(-0.124049, 0.518848, 0.418967, 0.734762)
+bones/29/rotation = Quaternion(0.00235412, -0.0089227, 0.255094, 0.966872)
+bones/30/rotation = Quaternion(0.835624, 0.40809, 0.183291, -0.318746)
 bones/31/rotation = Quaternion(1.38882e-17, -0.0224056, 3.11253e-19, 0.999749)
 bones/32/rotation = Quaternion(7.45058e-09, 0.000724987, -5.40158e-12, 1)
 bones/33/rotation = Quaternion(1.37325e-17, 0.0106365, 1.37325e-17, 0.999943)
@@ -1086,8 +1711,8 @@ bones/47/rotation = Quaternion(2.24615e-17, -0.317077, 6.71841e-17, 0.9484)
 bones/48/rotation = Quaternion(-6.15608e-19, 0.0244448, 2.51761e-17, 0.999701)
 bones/49/rotation = Quaternion(7.4322e-09, -0.0701941, 5.22987e-10, 0.997533)
 bones/50/rotation = Quaternion(6.95055e-09, 0.36017, -2.68348e-09, 0.932887)
-bones/52/rotation = Quaternion(0.499601, -0.183082, -0.00244122, 0.846684)
-bones/53/rotation = Quaternion(3.57114e-17, 1.62924e-17, -0.349821, 0.936817)
+bones/52/rotation = Quaternion(0.499602, -0.183082, -0.00244122, 0.846684)
+bones/53/rotation = Quaternion(-1.62924e-17, 3.57114e-17, -0.349821, 0.936816)
 bones/54/rotation = Quaternion(-0.0107754, -0.243093, 0.593018, 0.767541)
 bones/55/rotation = Quaternion(6.0394e-18, -2.81132e-16, 0.181559, 0.98338)
 bones/56/rotation = Quaternion(6.29121e-18, -2.22366e-16, 0.0889288, 0.996038)
