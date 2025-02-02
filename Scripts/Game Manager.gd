@@ -62,11 +62,14 @@ func handlePitching(delta):
 		
 
 func handleUI():
-	$UI/hpLabel.text = str(player.getHP())
+	$UI/TextureRect.texture = load("res://Images/batteries/battery" + str(player.getHP()) + ".png")
+	print("res://Images/batteries/battery" + str(player.getHP()) + ".png")
 
 func strike():
-	player.strike()
+	player.ouch()
 	audioManager.playHitSound("Strike", 1)
+	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/Srike.png")
+	$HitMessage/AnimationPlayer.play("show")
 	resetForNextPitch()
 
 #reset the game for the next pitch, everybody back to positions
@@ -90,27 +93,39 @@ func getCatchDest():
 
 #signal connect functions, most call sendBall() below
 func popFly():
+	player.ouch()
 	fielder.popFly(getCatchDest())
 	audioManager.playHitSound("PopFly", 1)
 	balltime = true
 	$PitchingMarker.ballHit()
+	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/out.png")
+	$HitMessage/AnimationPlayer.play("show")
 func homeRun():
 	sendBall("homeRun")
 	audioManager.playHitSound("HomeRun", 1)
 	$PitchingMarker.ballHit()
+	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/HOmerun.png")
+	$HitMessage/AnimationPlayer.play("show")
 func grounder():
+	player.ouch()
 	fielder.grounder(getCatchDest())
 	audioManager.playHitSound("Grounder", 1)
 	$PitchingMarker.ballHit()
+	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/out.png")
+	$HitMessage/AnimationPlayer.play("show")
 	balltime = true
 func leftFoul():
 	sendBall("leftFoul")
 	audioManager.playHitSound("Foul", 1)
 	$PitchingMarker.ballHit()
+	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/foul.png")
+	$HitMessage/AnimationPlayer.play("show")
 func rightFoul():
 	sendBall("rightFoul")
 	audioManager.playHitSound("Foul", 1)
 	$PitchingMarker.ballHit()
+	$HitMessage/TextureRect.texture = load("res://Images/HitStatusSprites/foul.png")
+	$HitMessage/AnimationPlayer.play("show")
 
 #instantiates a fake ball for the "cutscene" of a ball flying out of the stadium
 func sendBall(type):

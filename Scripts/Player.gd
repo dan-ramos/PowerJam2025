@@ -13,7 +13,7 @@ var reticleRay: RayCast3D
 var hitpath
 var lines = []
 @export var moveSpeed := .02
-var health = 10
+var health = 5
 
 var rng
 var batCrackPath
@@ -37,7 +37,7 @@ func _physics_process(delta):
 	if controllable:
 		move_player();
 
-func strike():
+func ouch():
 	health -= 1
 	
 func getHP():
