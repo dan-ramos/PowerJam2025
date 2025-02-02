@@ -1,10 +1,20 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1737934839
-::res://Models/::1737934776
-Joe_Baseball.fbx::PackedScene::9145467618048995402::1737934776::1737934841::1::::<><>::
-Pitcher.obj::Mesh::6635783536739270856::1737934776::1737934840::1::::<><>::
-::res://Scenes/::1737934776
-Game Test.tscn::PackedScene::7795394568501714883::1737934776::0::1::::<><>::uid://d3kerr6g3u31g::::res://Models/Joe_Baseball.fbx<>res://Scripts/Player.gd<>uid://c1sondp2cc25q::::res://Models/Pitcher.obj
-::res://Scripts/::1737934776
-Draw3D.gd::GDScript::-1::1737934776::0::1::::<>Node<>::
-Player.gd::GDScript::-1::1737934776::0::1::::<>Node<>::
+::res://::1738174960
+::res://Models/::1738087603
+Joe_Baseball.fbx::PackedScene::9145467618048995402::1737862342::1737869499::1::::<><>::
+Joe_Catcher.fbx::PackedScene::5898808827979109927::1738078333::1738087603::1::::<><>::
+Pitcher.obj::Mesh::6635783536739270856::1737868488::1738084565::1::::<><>::
+::res://Scenes/::1738129182
+Game Test.tscn::PackedScene::7795394568501714883::1738129182::0::1::::<><>::uid://d3kerr6g3u31g::::res://Models/Joe_Baseball.fbx<>res://Scripts/Game Manager.gd<>res://Scripts/Player.gd<>uid://c1sondp2cc25q::::res://Models/Pitcher.obj<>uid://gyeysc37535w::::res://Scenes/Prefabs/ball.tscn<>uid://554abpwtsgb0::::res://Scenes/Prefabs/Fielder.tscn
+::res://Scenes/Prefabs/::1738129195
+ball.tscn::PackedScene::470964804776490866::1738129130::0::1::::<><>::
+Batter_Demo.tscn::PackedScene::3027363263545395616::1738091895::0::1::::<><>::uid://d3kerr6g3u31g::::res://Models/Joe_Baseball.fbx
+cutsceneBall.tscn::PackedScene::3523922230073636949::1738129195::0::1::::<><>::res://Scripts/BallCam.gd
+Fielder.tscn::PackedScene::2169357511274092819::1738129130::0::1::::<><>::uid://cqborwvgf80df::::res://Models/Joe_Catcher.fbx<>res://Scripts/Fielder.gd<>res://Scripts/FielderCam.gd
+::res://Scripts/::1738129121
+BallCam.gd::GDScript::-1::1738129121::0::1::::<>Camera3D<>::
+Draw3D.gd::GDScript::-1::1737918726::0::1::::<>Node<>::
+Fielder.gd::GDScript::-1::1738124318::0::1::::<>Node3D<>::
+FielderCam.gd::GDScript::-1::1738118025::0::1::::<>Camera3D<>::
+Game Manager.gd::GDScript::-1::1738124265::0::1::::<>Node3D<>::
+Player.gd::GDScript::-1::1738124265::0::1::::<>Node3D<>::

@@ -1,1 +1,8 @@
 res://Scenes/Game Test.tscn
+res://Scripts/Game Manager.gd
+res://Scenes/Prefabs/ball.tscn
+res://Scenes/Prefabs/Fielder.tscn
+res://Scenes/Prefabs/cutsceneBall.tscn
+res://Scripts/Player.gd
+res://Scripts/BallCam.gd
+res://Scripts/Fielder.gd
