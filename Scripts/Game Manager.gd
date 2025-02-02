@@ -4,18 +4,13 @@ var cutsceneBallLiveTime = 4
 var timer = 0
 var balltime = false
 
+var audioManager
+
 var player
 var rng
 var fielder
 var ballSpawn
 var newball
-#var velocity = 10
-var left1
-var left2
-var right1
-var right2
-var homer1 # mmm donut 
-var homer2
 var cutsceneBall = preload("res://Scenes/Prefabs/cutsceneBall.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -23,8 +18,7 @@ func _ready():
 	#variable name setup pulled from root tree
 	player = $Player
 	ballSpawn = $"Stadium Stuff/BallSpawnPoint"
-	left1 = $"Stadium Stuff/AimPoints/Left1"
-	left2 = $"Stadium Stuff/AimPoints/Left2"
+	audioManager = $"BGM + Audio Manager"
 	fielder = get_tree().get_first_node_in_group("Fielder")
 	
 	#connects player/fielder signals to functions placed here
@@ -64,14 +58,21 @@ func getCatchDest():
 #signal connect functions, most call sendBall() below
 func popFly():
 	fielder.popFly(getCatchDest())
+	audioManager.playHitSound("PopFly", 1)
+	balltime = true
 func homeRun():
 	sendBall("homeRun")
+	audioManager.playHitSound("HomeRun", 1)
 func grounder():
 	fielder.grounder(getCatchDest())
+	audioManager.playHitSound("Grounder", 1)
+	balltime = true
 func leftFoul():
 	sendBall("leftFoul")
+	audioManager.playHitSound("Foul", 1)
 func rightFoul():
 	sendBall("rightFoul")
+	audioManager.playHitSound("Foul", 1)
 
 #instantiates a fake ball for the "cutscene" of a ball flying out of the stadium
 func sendBall(type):

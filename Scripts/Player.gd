@@ -14,11 +14,20 @@ var hitpath
 var lines = []
 @export var moveSpeed := .02
 
+var rng
+var batCrackPath
+var batCrackPlayer : AudioStreamPlayer
+const batCrackSFX = preload("res://Sounds/SFX/batCrack.wav")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#sets up some variable names for child nodes
 	reticle = $Reticle
 	reticleRay = $Reticle/ReticleRay
+	
+	batCrackPlayer = $HitSound
+	batCrackPlayer.stream = batCrackSFX
+	rng = RandomNumberGenerator.new()
 	
 	$AnimationPlayer.play("Idle")
 
@@ -41,13 +50,18 @@ func swing(ball):
 	var dist = reticle.global_position.distance_to(ball.global_position)
 	var ang = reticle.global_position.direction_to(ball.global_position)
 	
+	batCrackPlayer.pitch_scale = rng.randf_range(0.7, 1.2)
+	
 	#this whole block of ifs and elifs determines which type of hit you get. 
 	#each one emits a signal to the game manager script that continues the sequence
 	if dist <= 0.16:
 		print("Home Run!")
 		emit_signal("homeRun")
+		batCrackPlayer.play()
 		
 	elif dist > 0.16 and dist <= 0.32:
+		batCrackPlayer.play()
+		
 		if ang.x*100 < -45:
 			print("Left Foul")
 			emit_signal("leftFoul")
@@ -59,10 +73,12 @@ func swing(ball):
 			emit_signal("homeRun")
 			
 	elif dist > 0.32 and dist <= 0.45:
-		if int(ang.x * 10000) % 2 == 0:
+		batCrackPlayer.play()
+		
+		var coin = rng.randi()
+		if coin % 2 == 0:
 			print("Pop Fly! Out!")
 			emit_signal("popFly")
-			
 		else:
 			print("Grounder! Out!")
 			emit_signal("grounder")
@@ -104,11 +120,3 @@ func upToBat():
 	$AnimationPlayer.play("Idle")
 	controllable = true
 
-#debug stuff, unused now but kept for idk why
-#func draw_debug_ray(ball):
-	#for l in lines:
-		#l.queue_free()
-	#lines.clear()
-	#var extension = 2
-	#var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*10, ball.global_position.y * extension*1.5, ball.global_position.z * extension - reticle.global_position.z)
-	#lines.append(await Draw3d.line(beyond, reticle.global_position, Color.FIREBRICK))
