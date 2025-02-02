@@ -1,11 +1,13 @@
-[gd_scene load_steps=47 format=3 uid="uid://djcfalef8u644"]
+[gd_scene load_steps=53 format=3 uid="uid://djcfalef8u644"]
 
 [ext_resource type="PackedScene" uid="uid://d3kerr6g3u31g" path="res://Models/Joe_Baseball.fbx" id="1_12clm"]
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
+[ext_resource type="Texture2D" uid="uid://cde7n7ggcltyd" path="res://Models/Textures/Grass.jpg" id="2_gmfpc"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
 [ext_resource type="ArrayMesh" uid="uid://c1sondp2cc25q" path="res://Models/Pitcher.obj" id="2_r1okx"]
 [ext_resource type="PackedScene" uid="uid://dod3ktkoe8gpm" path="res://Models/Seats.fbx" id="2_tqevf"]
 [ext_resource type="PackedScene" uid="uid://c2km38hbqln62" path="res://Models/Steps.fbx" id="3_cakcd"]
+[ext_resource type="Texture2D" uid="uid://d0fkcxh3t06r2" path="res://Models/Textures/Dirt.jpg" id="3_ctbo5"]
 [ext_resource type="Texture2D" uid="uid://cj6o6fnii1hw1" path="res://Models/Textures/Pillar_Albedo.png" id="4_pnu8f"]
 [ext_resource type="ArrayMesh" uid="uid://rab5qjyum318" path="res://Models/SteelBeam.obj" id="5_hgkr7"]
 [ext_resource type="PackedScene" uid="uid://554abpwtsgb0" path="res://Scenes/Prefabs/Fielder.tscn" id="5_mnvti"]
@@ -19,9 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://brgx4q0b54ti2" path="res://Models/Roof.fbx" id="13_2qfd6"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="19_jp2vq"]
 [ext_resource type="Script" path="res://Scripts/PitchingMarker.gd" id="20_7osr2"]
+[ext_resource type="Texture2D" uid="uid://fdn7yjuwonvr" path="res://Images/HitStatusSprites/HOmerun.png" id="20_wh2au"]
+[ext_resource type="Texture2D" uid="uid://bm1ruiowy5tpa" path="res://Images/batteries/battery5.png" id="22_365gf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
+albedo_texture = ExtResource("2_gmfpc")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h53lx"]
 size = Vector2(100, 100)
@@ -41,12 +46,16 @@ sky = SubResource("Sky_wc6oq")
 [sub_resource type="BoxMesh" id="BoxMesh_8ghg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o1lc"]
+shading_mode = 2
+diffuse_mode = 3
 albedo_color = Color(0.760784, 0.447059, 0.168627, 1)
+albedo_texture = ExtResource("3_ctbo5")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a8s08"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cv0d"]
 albedo_color = Color(0.0666667, 0.780392, 0, 1)
+albedo_texture = ExtResource("2_gmfpc")
 
 [sub_resource type="QuadMesh" id="QuadMesh_by3uy"]
 
@@ -959,14 +968,65 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1lsr"]
 albedo_color = Color(0.858824, 0.701961, 0, 1)
 
-[sub_resource type="Curve2D" id="Curve2D_bhfbs"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 960, -300, 0, 0, 0, 0, 960, 300)
-}
-point_count = 2
-
-[sub_resource type="Theme" id="Theme_wyusc"]
+[sub_resource type="Theme" id="Theme_76kc1"]
 default_font_size = 200
+
+[sub_resource type="Animation" id="Animation_x33hf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_ug2r4"]
+resource_name = "on then off"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 700, -0.25, 0, 0.25, 0, 700, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1.5, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tf0rp"]
+_data = {
+"RESET": SubResource("Animation_x33hf"),
+"show": SubResource("Animation_ug2r4")
+}
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(0.997572, 0, 0, 0, 0.997572, 0, 0, 0, 0.997572, 0, 0, 0)
@@ -1049,6 +1109,7 @@ transform = Transform3D(31.455, 0, 0, 0, 31.455, 0, 0, 0, 31.455, 0, -31.4418, -
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff/Dirt"]
 material_overlay = SubResource("StandardMaterial3D_3o1lc")
+cast_shadow = 0
 mesh = SubResource("CylinderMesh_a8s08")
 
 [node name="Infield Grass" type="StaticBody3D" parent="Stadium Stuff"]
@@ -1838,10 +1899,8 @@ script = ExtResource("20_7osr2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Path2D" type="Path2D" parent="UI"]
-curve = SubResource("Curve2D_bhfbs")
-
 [node name="hpLabel" type="Label" parent="UI"]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -1850,8 +1909,37 @@ offset_top = -301.0
 offset_right = 254.0
 offset_bottom = -28.0
 grow_vertical = 0
-theme = SubResource("Theme_wyusc")
+theme = SubResource("Theme_76kc1")
 text = "10"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -424.0
+offset_right = 348.0
+offset_bottom = 17.0
+grow_vertical = 0
+texture = ExtResource("22_365gf")
+expand_mode = 1
+
+[node name="HitMessage" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="HitMessage"]
+offset_left = 624.0
+offset_top = -771.0
+offset_right = 1405.0
+offset_bottom = -9.0
+texture = ExtResource("20_wh2au")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HitMessage"]
+root_node = NodePath("../TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_tf0rp")
+}
 
 [connection signal="child_exiting_tree" from="PitchingMarker" to="PitchingMarker" method="_on_child_exiting_tree"]
 
