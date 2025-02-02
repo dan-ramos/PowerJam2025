@@ -37,8 +37,10 @@ func _physics_process(delta):
 	if controllable:
 		move_player();
 
-func ouch():
-	health -= 1
+func ouch(dmg):
+	print(health, dmg)
+	health -= dmg
+	print(health)
 	
 func getHP():
 	return health
@@ -88,10 +90,10 @@ func swing(ball):
 func move_player():
 	if Input.is_action_pressed("Player_Left") and not Input.is_action_pressed("Player_Right"):
 		self.position.x -= moveSpeed;
-		self.position.x = clamp(self.position.x, .64, 1.56);
+		self.position.x = clamp(self.position.x, -.5, .5);
 	elif Input.is_action_pressed("Player_Right") and not Input.is_action_pressed("Player_Left"):
 		self.position.x += moveSpeed;
-		self.position.x = clamp(self.position.x, .64, 1.56);
+		self.position.x = clamp(self.position.x, -.5, .5);
 	
 	if Input.is_key_pressed(KEY_Z):
 		var othercam = $"../Stadium Stuff/Camera3D2"
@@ -114,7 +116,7 @@ func move_player():
 
 #reset the batter for the next pitch
 func upToBat():
-	self.position.x = 1.16
+	self.position.x = -0.06
 	$AnimationPlayer.play("Idle")
 	controllable = true
 

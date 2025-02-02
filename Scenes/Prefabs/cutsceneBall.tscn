@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqhaqp3b5u4b6"]
+[gd_scene load_steps=6 format=3 uid="uid://bqhaqp3b5u4b6"]
 
 [ext_resource type="Script" path="res://Scripts/BallCam.gd" id="1_01tpq"]
+[ext_resource type="PackedScene" uid="uid://bthf2kjylw1kv" path="res://Scenes/Prefabs/NewBall.tscn" id="2_u0pyo"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5eqoj"]
 
@@ -18,6 +19,7 @@ shape = SubResource("SphereShape3D_5eqoj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+visible = false
 material_overlay = SubResource("StandardMaterial3D_4urb1")
 mesh = SubResource("SphereMesh_ai8kl")
 
@@ -25,3 +27,6 @@ mesh = SubResource("SphereMesh_ai8kl")
 transform = Transform3D(1, 0, 0, 0, 0.951094, 0.308901, 0, -0.308901, 0.951094, 0, 1.77368, 4.58121)
 top_level = true
 script = ExtResource("1_01tpq")
+
+[node name="Root Scene" parent="." instance=ExtResource("2_u0pyo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

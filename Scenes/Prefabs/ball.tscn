@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://gyeysc37535w"]
+[gd_scene load_steps=7 format=3 uid="uid://gyeysc37535w"]
 
 [ext_resource type="Texture2D" uid="uid://d0s4f8dp1sjct" path="res://Images/DropShadow.png" id="1_dco5w"]
+[ext_resource type="PackedScene" uid="uid://bthf2kjylw1kv" path="res://Scenes/Prefabs/NewBall.tscn" id="2_kux2j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j8qi1"]
 radius = 0.485218
@@ -24,9 +25,12 @@ shape = SubResource("SphereShape3D_j8qi1")
 disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("SphereMesh_7pn02")
 
 [node name="Drop Shadow" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.14, 0)
 material_override = SubResource("StandardMaterial3D_6avfb")
 mesh = SubResource("CylinderMesh_e3u2w")
+
+[node name="Root Scene" parent="." instance=ExtResource("2_kux2j")]
