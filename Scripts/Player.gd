@@ -13,6 +13,7 @@ var reticleRay: RayCast3D
 var hitpath
 var lines = []
 @export var moveSpeed := .02
+var health = 10
 
 var rng
 var batCrackPath
@@ -35,16 +36,12 @@ func _ready():
 func _physics_process(delta):
 	if controllable:
 		move_player();
-	handle_reticle();
+
+func strike():
+	health -= 1
 	
-func handle_reticle():
-	pass
-	#var ball = get_tree().get_first_node_in_group("Ball")
-	#var extension = 2
-	#calculates a position beyond the ball based on the reticle's position. mostly for reticle debug lines
-	#var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*2, ball.global_position.y * extension*.5 - reticle.global_position.z, ball.global_position.z * extension - reticle.global_position.z)
-	#if ball:
-		#reticleRay.target_position = beyond
+func getHP():
+	return health
 
 #function to handle bat swings
 func swing(ball):
