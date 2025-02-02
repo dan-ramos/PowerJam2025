@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BallData" load_steps=3 format=3 uid="uid://c2r1pyekfc86i"]
+
+[ext_resource type="Script" path="res://Scripts/BallScripts/BallData.gd" id="1_bjwwr"]
+[ext_resource type="Texture2D" uid="uid://t2mcm83uyfbl" path="res://Images/LH.png" id="2_lq28r"]
+
+[resource]
+script = ExtResource("1_bjwwr")
+speed = 30
+sprite = ExtResource("2_lq28r")

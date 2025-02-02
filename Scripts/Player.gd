@@ -38,12 +38,13 @@ func _physics_process(delta):
 	handle_reticle();
 	
 func handle_reticle():
-	var ball = get_tree().get_first_node_in_group("Ball")
-	var extension = 2
+	pass
+	#var ball = get_tree().get_first_node_in_group("Ball")
+	#var extension = 2
 	#calculates a position beyond the ball based on the reticle's position. mostly for reticle debug lines
-	var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*2, ball.global_position.y * extension*.5 - reticle.global_position.z, ball.global_position.z * extension - reticle.global_position.z)
-	if ball:
-		reticleRay.target_position = beyond
+	#var beyond = Vector3(ball.global_position.x * extension - reticle.global_position.x*2, ball.global_position.y * extension*.5 - reticle.global_position.z, ball.global_position.z * extension - reticle.global_position.z)
+	#if ball:
+		#reticleRay.target_position = beyond
 
 #function to handle bat swings
 func swing(ball):
@@ -111,8 +112,8 @@ func move_player():
 		$AnimationPlayer.play("Swing")
 		#uncomment this next line to show the debug line that doesnt work
 		#draw_debug_ray(ball);
-		
-		swing(ball)
+		if ball != null:
+			swing(ball)
 
 #reset the batter for the next pitch
 func upToBat():

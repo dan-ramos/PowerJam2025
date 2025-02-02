@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdpw71bqmqcyi"]
+[gd_scene load_steps=5 format=3 uid="uid://cspgvu2tspe4e"]
 
-[ext_resource type="Script" path="res://Scripts/BallScripts/Pitch.gd" id="1_0vph6"]
-[ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="1_7lepl"]
-[ext_resource type="Resource" uid="uid://c2r1pyekfc86i" path="res://Resources/slowBall.tres" id="2_i42ch"]
+[ext_resource type="Script" path="res://Scripts/BallScripts/Pitch.gd" id="1_mu8jb"]
+[ext_resource type="Resource" uid="uid://2koxw2guya3d" path="res://Resources/fastBall.tres" id="2_an51k"]
+[ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="3_yqqrp"]
 
 [sub_resource type="Curve3D" id="Curve3D_huqhu"]
 _data = {
@@ -11,10 +11,10 @@ _data = {
 }
 point_count = 2
 
-[node name="slowBall" type="Node3D"]
+[node name="fastBall" type="Node3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1.00582, 0)
-script = ExtResource("1_0vph6")
-ballData = ExtResource("2_i42ch")
+script = ExtResource("1_mu8jb")
+ballData = ExtResource("2_an51k")
 
 [node name="Path3D" type="Path3D" parent="."]
 curve = SubResource("Curve3D_huqhu")
@@ -23,5 +23,5 @@ curve = SubResource("Curve3D_huqhu")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 loop = false
 
-[node name="Ball" parent="Path3D/PathFollow3D" instance=ExtResource("1_7lepl")]
+[node name="Ball" parent="Path3D/PathFollow3D" instance=ExtResource("3_yqqrp")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)

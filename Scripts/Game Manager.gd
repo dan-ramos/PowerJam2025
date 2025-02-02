@@ -2,6 +2,10 @@ extends Node3D
 
 var cutsceneBallLiveTime = 4
 var timer = 0
+
+var timeTilNextBall = 2
+var pitchTimer = 0
+
 var balltime = false
 
 var audioManager
@@ -10,6 +14,8 @@ var player
 var rng
 var fielder
 var ballSpawn
+var pitcher
+var pitching = false
 var newball
 var cutsceneBall = preload("res://Scenes/Prefabs/cutsceneBall.tscn")
 
@@ -19,6 +25,7 @@ func _ready():
 	player = $Player
 	ballSpawn = $"Stadium Stuff/BallSpawnPoint"
 	audioManager = $"BGM + Audio Manager"
+	pitcher = $PitchingMarker
 	fielder = get_tree().get_first_node_in_group("Fielder")
 	
 	#connects player/fielder signals to functions placed here
@@ -38,6 +45,15 @@ func _process(delta):
 		timer += delta
 		if timer > cutsceneBallLiveTime:
 			resetForNextPitch()
+	else:
+		handlePitching(delta)
+
+func handlePitching(delta):
+	if pitchTimer < timeTilNextBall:
+		pitchTimer += delta
+	elif pitchTimer > timeTilNextBall and not pitching:
+		pitcher.pitch()
+		pitching = true
 
 #reset the game for the next pitch, everybody back to positions
 func resetForNextPitch():
@@ -46,7 +62,9 @@ func resetForNextPitch():
 		newball.queue_free()
 	balltime = false
 	timer = 0
-	#pitcher.reset()
+	pitcher.reset()
+	pitching = false
+	pitchTimer = 0
 
 #randomly generates an x/z coordinate for the fielder to run to. could prob be in the fielder code but whatever
 func getCatchDest():
