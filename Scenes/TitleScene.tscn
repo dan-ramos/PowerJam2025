@@ -1,0 +1,224 @@
+[gd_scene load_steps=17 format=3 uid="uid://dxj6obp15u377"]
+
+[ext_resource type="Texture2D" uid="uid://boxymwggy7v1v" path="res://Images/Faces/sam_curtis.jpg" id="1_vbrq7"]
+[ext_resource type="Texture2D" uid="uid://fdss57kum2u2" path="res://Images/Faces/miley.PNG" id="2_c062w"]
+[ext_resource type="FontFile" uid="uid://b22tian6n8pvc" path="res://Images/Faces/Hugh is Life Personal Use .ttf" id="2_terjc"]
+[ext_resource type="Texture2D" uid="uid://ndcjhjhjktkx" path="res://Images/Faces/gary.jpg" id="4_gr7ht"]
+[ext_resource type="Texture2D" uid="uid://dlcdppjl0vt7r" path="res://Images/Faces/bsky.png" id="4_y4y5q"]
+[ext_resource type="Texture2D" uid="uid://tubcd787cl2t" path="res://Images/Faces/Dan.png" id="5_3b683"]
+[ext_resource type="Script" path="res://Scripts/LinkButton.gd" id="5_mhelk"]
+[ext_resource type="Texture2D" uid="uid://hic8gc2c5yhi" path="res://Images/Faces/twt.png" id="6_e7kky"]
+[ext_resource type="FontFile" uid="uid://df71p8odg4l6n" path="res://Images/Faces/Watch-Quinn.ttf" id="7_3563g"]
+[ext_resource type="Texture2D" uid="uid://cji682ns1gyhh" path="res://Images/BatterUp.png" id="10_wibui"]
+[ext_resource type="Script" path="res://Scripts/SceneLoadButton.gd" id="11_2xalg"]
+[ext_resource type="Script" path="res://Scripts/TitleScreenBanter.gd" id="12_1brem"]
+
+[sub_resource type="Theme" id="Theme_gjmxk"]
+default_font = ExtResource("2_terjc")
+default_font_size = 500
+
+[sub_resource type="Theme" id="Theme_ud03r"]
+default_font = ExtResource("7_3563g")
+default_font_size = 150
+
+[sub_resource type="Theme" id="Theme_myf5q"]
+default_font = ExtResource("7_3563g")
+default_font_size = 493
+
+[sub_resource type="AudioStream" id="AudioStream_bb3qo"]
+
+[node name="TitleScene" type="Node2D"]
+
+[node name="SamCurtis" type="Sprite2D" parent="."]
+position = Vector2(1004.22, 540.375)
+scale = Vector2(0.0817355, 0.0818772)
+texture = ExtResource("1_vbrq7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SamCurtis"]
+offset_left = -1532.0
+offset_top = -1116.0
+offset_right = 1576.0
+offset_bottom = -945.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 98
+text = "And who could forget our amazing commentators/co-managers?"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="SamCurtis"]
+offset_left = -553.249
+offset_top = -957.226
+offset_right = 363.751
+offset_bottom = -773.226
+rotation = 0.147189
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 98
+text = "ACCESSIBILITY SME
+BY CURTIS"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="SamCurtis"]
+offset_left = 58.4966
+offset_top = 203.048
+offset_right = 1658.5
+offset_bottom = 809.048
+theme = SubResource("Theme_gjmxk")
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+text = "Sam Biggs"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="SamCurtis"]
+offset_left = -1556.47
+offset_top = -859.519
+offset_right = 142.532
+offset_bottom = 120.481
+rotation = 0.0819845
+theme = SubResource("Theme_gjmxk")
+theme_override_colors/default_color = Color(1, 0, 1, 1)
+text = "Curtis Schneidereit"
+
+[node name="Miley" type="Sprite2D" parent="."]
+position = Vector2(1028, 86)
+scale = Vector2(0.359907, 0.367816)
+texture = ExtResource("2_c062w")
+
+[node name="TextureButton" type="TextureButton" parent="Miley"]
+offset_left = 175.045
+offset_top = 10.875
+offset_right = 333.045
+offset_bottom = 158.875
+texture_normal = ExtResource("4_y4y5q")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_mhelk")
+link_to_open = "https://bsky.app/profile/moleymiley.bsky.social"
+
+[node name="TextureButton4" type="TextureButton" parent="Miley"]
+offset_left = 172.267
+offset_top = -157.688
+offset_right = 330.267
+offset_bottom = -9.6875
+texture_normal = ExtResource("6_e7kky")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_mhelk")
+link_to_open = "https://x.com/MoleyMiley"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Miley"]
+offset_left = -519.579
+offset_top = -233.813
+offset_right = -144.579
+offset_bottom = -42.8126
+theme = SubResource("Theme_ud03r")
+text = "Miley"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Miley"]
+offset_left = -700.0
+offset_top = -84.0
+offset_right = -166.0
+offset_bottom = 161.0
+theme = SubResource("Theme_ud03r")
+theme_override_font_sizes/normal_font_size = 42
+text = "3D Modeler/Animator +
+Character Designer
+(everything 3d you see)
+
+Also wrote the title theme!"
+
+[node name="Gary" type="Sprite2D" parent="."]
+position = Vector2(1027, 380)
+scale = Vector2(0.295, 0.29)
+texture = ExtResource("4_gr7ht")
+
+[node name="TextureButton2" type="TextureButton" parent="Gary"]
+offset_left = 220.339
+offset_top = -62.0689
+offset_right = 378.339
+offset_bottom = 85.9311
+texture_normal = ExtResource("4_y4y5q")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_mhelk")
+link_to_open = "https://bsky.app/profile/darionpm.bsky.social"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Gary"]
+offset_left = -718.644
+offset_top = -255.172
+offset_right = -179.644
+offset_bottom = -52.1725
+theme = SubResource("Theme_myf5q")
+theme_override_font_sizes/normal_font_size = 180
+text = "Darion"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Gary"]
+offset_left = -759.322
+offset_top = -58.6207
+offset_right = -181.322
+offset_bottom = 186.379
+theme = SubResource("Theme_ud03r")
+theme_override_font_sizes/normal_font_size = 47
+text = "2D Texture + Sprite Artist
+(everything 2d you see)
+
+"
+
+[node name="Dan" type="Sprite2D" parent="."]
+position = Vector2(1027, 236)
+scale = Vector2(0.107735, 0.107408)
+texture = ExtResource("5_3b683")
+
+[node name="TextureButton3" type="TextureButton" parent="Dan"]
+anchors_preset = -1
+anchor_left = 1.064
+anchor_top = 0.296
+anchor_right = 1.517
+anchor_bottom = 0.653
+offset_left = -542.888
+offset_top = -639.272
+offset_right = -542.846
+offset_bottom = -638.875
+texture_normal = ExtResource("6_e7kky")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_mhelk")
+link_to_open = "https://x.com/DanieldotEXE"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Dan"]
+offset_left = -1902.82
+offset_top = -809.996
+offset_right = -212.817
+offset_bottom = -222.996
+theme = SubResource("Theme_myf5q")
+text = "Daniel"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Dan"]
+offset_left = -1894.0
+offset_top = -289.0
+offset_right = -594.0
+offset_bottom = 595.0
+theme = SubResource("Theme_ud03r")
+text = "Programmer 
+Gameplay Engineer
+
+Sound Designer"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 3.0
+offset_top = 397.0
+offset_right = 245.0
+offset_bottom = 645.0
+texture_normal = ExtResource("10_wibui")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("11_2xalg")
+scene_to_go_to = "res://Scenes/Game Test.tscn"
+
+[node name="TitleScreenBanter" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_bb3qo")
+volume_db = -3.268
+script = ExtResource("12_1brem")
+
+[node name="BgmPlayer" type="AudioStreamPlayer" parent="TitleScreenBanter"]
+volume_db = -21.236
+
+[connection signal="pressed" from="Miley/TextureButton" to="Miley/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="Miley/TextureButton4" to="Miley/TextureButton4" method="_on_pressed"]
+[connection signal="pressed" from="Gary/TextureButton2" to="Gary/TextureButton2" method="_on_pressed"]
+[connection signal="pressed" from="Dan/TextureButton3" to="Dan/TextureButton3" method="_on_pressed"]
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
