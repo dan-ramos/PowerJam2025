@@ -1,1 +1,7 @@
+res://Scenes/TitleScene.tscn
+res://Scripts/TitleScreenBanter.gd
+res://Scenes/Prefabs/Balls/slowBall.tscn
+res://Scenes/Prefabs/ball.tscn
 res://Scenes/Game Test.tscn
+res://Scripts/AudioManager.gd
+res://Scripts/Game Manager.gd

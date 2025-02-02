@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://djcfalef8u644"]
+[gd_scene load_steps=29 format=3 uid="uid://djcfalef8u644"]
 
 [ext_resource type="PackedScene" uid="uid://d3kerr6g3u31g" path="res://Models/Joe_Baseball.fbx" id="1_12clm"]
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c1sondp2cc25q" path="res://Models/Pitcher.obj" id="2_r1okx"]
 [ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="4_k6nkp"]
 [ext_resource type="PackedScene" uid="uid://554abpwtsgb0" path="res://Scenes/Prefabs/Fielder.tscn" id="5_mnvti"]
+[ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="7_j766a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
@@ -1142,6 +1143,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000108264, -0.000386097, 8.
 hit_from_inside = true
 collide_with_areas = true
 
+[node name="HitSound" type="AudioStreamPlayer" parent="Player"]
+volume_db = -25.746
+
 [node name="Pitcher" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0.162964, -11.7821)
 
@@ -1152,9 +1156,49 @@ mesh = ExtResource("2_r1okx")
 skeleton = NodePath("../..")
 
 [node name="Ball" parent="." instance=ExtResource("4_k6nkp")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.884683, 0.477028)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.866303, 0.441757)
 
 [node name="Fielder" parent="." groups=["Fielder"] instance=ExtResource("5_mnvti")]
 transform = Transform3D(0.989543, 0, -0.144235, 0, 1, 0, 0.144235, 0, 0.989543, 3.814, 0, -17.08)
+
+[node name="BGM + Audio Manager" type="AudioStreamPlayer" parent="."]
+volume_db = -30.09
+script = ExtResource("7_j766a")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
+
+[node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="BGM + Audio Manager"]
+volume_db = -13.206
 
 [editable path="Player"]
