@@ -38,9 +38,7 @@ func _physics_process(delta):
 		move_player();
 
 func ouch(dmg):
-	print(health, dmg)
 	health -= dmg
-	print(health)
 	
 func getHP():
 	return health
@@ -56,12 +54,12 @@ func swing(ball):
 	
 	#this whole block of ifs and elifs determines which type of hit you get. 
 	#each one emits a signal to the game manager script that continues the sequence
-	if dist <= 0.2:
+	if dist <= 0.22:
 		print("Home Run!")
 		emit_signal("homeRun")
 		batCrackPlayer.play()
 		
-	elif dist > 0.2 and dist <= 0.36:
+	elif dist > 0.22 and dist <= 0.36:
 		batCrackPlayer.play()
 		
 		if ang.x*100 < -45:

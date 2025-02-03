@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ql2p5rfek2kl"]
+
+[ext_resource type="Script" path="res://Scripts/gameOver.gd" id="1_bi0no"]
+[ext_resource type="Texture2D" uid="uid://qdja6rbrg5qf" path="res://Images/Game_over.jpg" id="1_rm8s2"]
+[ext_resource type="PackedScene" path="res://Scenes/SOY.tscn" id="3_vkrry"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bi0no")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1913.0
+offset_bottom = 1285.0
+texture = ExtResource("1_rm8s2")
+
+[node name="Node2D" parent="." instance=ExtResource("3_vkrry")]
+position = Vector2(-3, 10)

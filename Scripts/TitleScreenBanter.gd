@@ -1,13 +1,13 @@
 extends AudioStreamPlayer
 
 const startBanterPath = 'res://Sounds/Banter/banter_START.wav'
-const bgmPath = 'res://Sounds/Music/Mario Stadium - Mario Super Sluggers Music Extended.ogg'
+const bgmPath = 'res://Sounds/Music/BiggieBallTitle.wav'
 const ambiencePath = "res://Sounds/SFX/baseball-sounds-52818.ogg"
 var ambient = preload(ambiencePath)
 var bgm = preload(bgmPath)
 var startBanter = preload(startBanterPath)
 
-var waiting = true
+var waiting = false
 
 var bootTime = 1.5
 var waitTimer = 0
@@ -17,6 +17,7 @@ var timer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.stream = startBanter
+	self.play()
 	$BgmPlayer.stream = bgm
 	$BgmPlayer.play()
 	
@@ -40,7 +41,4 @@ func _process(delta):
 				
 				timer = 0
 	else:
-		waitTimer += delta
-		if waitTimer > bootTime:
-			waiting = false
-			play()
+		pass

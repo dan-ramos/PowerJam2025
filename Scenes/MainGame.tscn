@@ -1,11 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://xr87s16hcmqd"]
+[gd_scene load_steps=60 format=3 uid="uid://xr87s16hcmqd"]
 
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
 [ext_resource type="Texture2D" uid="uid://cde7n7ggcltyd" path="res://Models/Textures/Grass.jpg" id="2_gmfpc"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
-[ext_resource type="PackedScene" uid="uid://ds1ra4mvgfpda" path="res://Models/Seats.fbx" id="2_tqevf"]
+[ext_resource type="PackedScene" uid="uid://dod3ktkoe8gpm" path="res://Models/Seats.fbx" id="2_tqevf"]
 [ext_resource type="PackedScene" uid="uid://df6txvkpnjddx" path="res://Scenes/SKY.tscn" id="3_a7epq"]
-[ext_resource type="PackedScene" uid="uid://dami1ijie7x7j" path="res://Models/Steps.fbx" id="3_cakcd"]
+[ext_resource type="PackedScene" uid="uid://c2km38hbqln62" path="res://Models/Steps.fbx" id="3_cakcd"]
 [ext_resource type="Texture2D" uid="uid://d0fkcxh3t06r2" path="res://Models/Textures/Dirt.jpg" id="3_ctbo5"]
 [ext_resource type="Texture2D" uid="uid://cj6o6fnii1hw1" path="res://Models/Textures/Pillar_Albedo.png" id="4_pnu8f"]
 [ext_resource type="ArrayMesh" uid="uid://rab5qjyum318" path="res://Models/SteelBeam.obj" id="5_hgkr7"]
@@ -17,11 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://d134r88wnkv3a" path="res://Models/Textures/FoulPole_Albedo.png" id="10_p5mjx"]
 [ext_resource type="ArrayMesh" uid="uid://dd8dykpsktqpg" path="res://Models/FoulPole.obj" id="11_wate6"]
 [ext_resource type="PackedScene" uid="uid://brgx4q0b54ti2" path="res://Models/Roof.fbx" id="13_2qfd6"]
-[ext_resource type="PackedScene" uid="uid://dikwfgdnwv822" path="res://Models/SidePanels.fbx" id="17_kjlqn"]
+[ext_resource type="PackedScene" uid="uid://bin0rid1xrhnm" path="res://Models/SidePanels.fbx" id="17_kjlqn"]
 [ext_resource type="PackedScene" uid="uid://cj8d4bw0hgr71" path="res://Models/AnnouncerBox.fbx" id="17_og4js"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="19_jp2vq"]
+[ext_resource type="Texture2D" uid="uid://b5jdpkqo04f1d" path="res://Images/Jumbotron/1.png" id="19_wxo5p"]
 [ext_resource type="Script" path="res://Scripts/PitchingMarker.gd" id="20_7osr2"]
 [ext_resource type="PackedScene" uid="uid://bd2kyv7q6gae3" path="res://Scenes/Prefabs/biggie_batter.tscn" id="20_bdgwn"]
+[ext_resource type="Script" path="res://Scripts/jumbotron.gd" id="20_ii6tg"]
 [ext_resource type="Texture2D" uid="uid://fdn7yjuwonvr" path="res://Images/HitStatusSprites/HOmerun.png" id="20_wh2au"]
 [ext_resource type="Texture2D" uid="uid://bm1ruiowy5tpa" path="res://Images/batteries/battery5.png" id="22_365gf"]
 [ext_resource type="PackedScene" uid="uid://cx25oohdg3lta" path="res://Scenes/Prefabs/pitcher.tscn" id="22_vxkd5"]
@@ -29,6 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://c3o4gvum4ysoj" path="res://Scenes/Prefabs/joe_final.tscn" id="24_26o23"]
 [ext_resource type="Material" uid="uid://crb5tb86l5j8" path="res://Models/Textures/Outline.tres" id="24_efugo"]
 [ext_resource type="PackedScene" uid="uid://db36bleftbxpa" path="res://Scenes/Ship.tscn" id="28_rrj2x"]
+[ext_resource type="PackedScene" uid="uid://dxn34n4biwgdo" path="res://Scenes/Fireworks.tscn" id="30_f7f4d"]
+[ext_resource type="Texture2D" uid="uid://buv2q4colkvbh" path="res://Images/Warning.png" id="33_mtkxe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
@@ -82,8 +86,25 @@ albedo_texture = ExtResource("8_18igh")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_e6iiu"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_muafi"]
+albedo_texture = ExtResource("19_wxo5p")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_voaoj"]
+material = SubResource("StandardMaterial3D_muafi")
+size = Vector2(21.48, 15.48)
+
 [sub_resource type="Theme" id="Theme_76kc1"]
-default_font_size = 200
+default_font_size = 50
+
+[sub_resource type="Gradient" id="Gradient_ys3h5"]
+offsets = PackedFloat32Array(0.132143, 0.946429)
+colors = PackedColorArray(0, 0, 0, 1, 0.027451, 0, 0.509804, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1dfv"]
+gradient = SubResource("Gradient_ys3h5")
+fill = 1
+fill_from = Vector2(0.447293, 0.509971)
+fill_to = Vector2(1, 1)
 
 [sub_resource type="Animation" id="Animation_x33hf"]
 length = 0.001
@@ -140,6 +161,43 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_x33hf"),
 "show": SubResource("Animation_ug2r4")
+}
+
+[sub_resource type="Animation" id="Animation_nh1yl"]
+resource_name = "blink"
+length = 4.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_cjkk6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnvg4"]
+_data = {
+"RESET": SubResource("Animation_cjkk6"),
+"blink": SubResource("Animation_nh1yl")
 }
 
 [node name="Node3D" type="Node3D"]
@@ -1009,6 +1067,11 @@ transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6302, 33.5718, -26.5214)
 light_energy = 3.0
 omni_range = 9.03
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Stadium Stuff"]
+transform = Transform3D(0.990732, 0, 0, 0, -4.37114e-08, -0.797719, 0, 1, -3.48694e-08, -0.27705, 23.5469, -78.164)
+mesh = SubResource("PlaneMesh_voaoj")
+script = ExtResource("20_ii6tg")
+
 [node name="BGM + Audio Manager" type="AudioStreamPlayer" parent="."]
 volume_db = -30.09
 script = ExtResource("19_jp2vq")
@@ -1055,19 +1118,17 @@ script = ExtResource("20_7osr2")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="hpLabel" type="Label" parent="UI"]
-visible = false
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = -301.0
-offset_right = 254.0
-offset_bottom = -28.0
-grow_vertical = 0
+[node name="bg" type="TextureRect" parent="UI"]
+offset_right = 255.0
+offset_bottom = 72.0
 theme = SubResource("Theme_76kc1")
-text = "10"
-metadata/_edit_use_anchors_ = true
+texture = SubResource("GradientTexture2D_x1dfv")
+
+[node name="hpLabel" type="Label" parent="UI"]
+offset_right = 273.0
+offset_bottom = 95.0
+theme = SubResource("Theme_76kc1")
+text = "Dingers: 0"
 
 [node name="TextureRect" type="TextureRect" parent="UI"]
 anchors_preset = 2
@@ -1259,6 +1320,31 @@ material_overlay = ExtResource("24_efugo")
 
 [node name="Ship" parent="." instance=ExtResource("28_rrj2x")]
 transform = Transform3D(162.516, 0, 0, 0, 162.516, 0, 0, 0, 162.516, 0, -26.839, 0)
+
+[node name="Node3D" parent="." instance=ExtResource("30_f7f4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80.8709)
+
+[node name="Node3D2" parent="." instance=ExtResource("30_f7f4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -80.8709)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = -625.0
+offset_right = 376.0
+offset_bottom = -338.0
+grow_vertical = 0
+rotation = -0.137031
+texture = ExtResource("33_mtkxe")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+libraries = {
+"": SubResource("AnimationLibrary_jnvg4")
+}
+autoplay = "blink"
 
 [connection signal="child_exiting_tree" from="PitchingMarker" to="PitchingMarker" method="_on_child_exiting_tree"]
 

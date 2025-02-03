@@ -3,11 +3,19 @@ extends Node3D
 var cutsceneBallLiveTime = 4
 var timer = 0
 
+var score = 0
+
 var timeTilNextBall = 2
 var pitchTimer = 0
 var pitchAnimTime = 1
 var pitchAnimTimer = 0
+var introTimer = 0
+var introTime = 8.5
 
+var boardTimer = 0
+var boardTime = 10
+
+var intro = true
 var balltime = false
 
 var audioManager
@@ -42,15 +50,23 @@ func _ready():
 	fielder.connect("finished", resetForNextPitch)
 	pitcher.connect("strike", strike)
 	rng = RandomNumberGenerator.new()
+	$Player/AnimationPlayer.play("Into")
+	$PitchBot/AnimationPlayer.play("Intro")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	handleUI()
 	if player.getHP() <= 0:
-		get_tree().change_scene_to_file('res://Scenes/TitleScene.tscn')
+		get_tree().change_scene_to_file('res://Scenes/gameOver.tscn')
 	
 	#protections for when a ball is flying home run or foul, can't control the character etc
-	if balltime:
+	if intro:
+		introTimer += delta
+		if introTimer > introTime:
+			intro = false
+			resetForNextPitch()
+	elif balltime:
 		player.controllable = false
 		timer += delta
 		if timer > cutsceneBallLiveTime:
@@ -67,6 +83,7 @@ func handlePitching(delta):
 
 func handleUI():
 	$UI/TextureRect.texture = load("res://Images/batteries/battery" + str(player.getHP()) + ".png")
+	$UI/hpLabel.text = "Dingers: " + str(score)
 
 func strike():
 	damage = 1
@@ -108,6 +125,7 @@ func popFly():
 	$HitMessage/AnimationPlayer.play("show")
 func homeRun():
 	damage = 0
+	score += 1
 	sendBall("homeRun")
 	audioManager.playHitSound("HomeRun", 1)
 	$PitchingMarker.ballHit()
@@ -143,6 +161,7 @@ func sendBall(type):
 	newball.position = ballSpawn.position
 	#throw the ball at (sendVector() result position)
 	newball.set_linear_velocity(global_transform.basis * sendVector(type))
+	newball.apply_torque(Vector3(randf_range(-15, 15), randf_range(-15, 15), randf_range(-15, 15)))
 	#(and sets ball time to true so the player can't move)
 	balltime = true
 

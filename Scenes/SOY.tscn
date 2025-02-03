@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bad4jxqyjfriu"]
+
+[ext_resource type="Texture2D" uid="uid://cb0dnn4brb8xh" path="res://Images/Soyjack1.png" id="1_rt3gg"]
+[ext_resource type="Texture2D" uid="uid://beiwbklwc6jnx" path="res://Images/soyjack2.png" id="2_d5wym"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Soyjack1" type="Sprite2D" parent="."]
+position = Vector2(1406, 767)
+texture = ExtResource("1_rt3gg")
+
+[node name="Soyjack2" type="Sprite2D" parent="."]
+position = Vector2(642, 766)
+texture = ExtResource("2_d5wym")
