@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbaudb30fotli"
-path.s3tc="res://.godot/imported/BiggieBatter-fe923f2d6519e0a1d9617d1d5478d9eb_BigMode_UV.png-f5392ffbe3b9882c9a73832bb912e4ec.s3tc.ctex"
+uid="uid://dtq771ysx5cna"
+path.s3tc="res://.godot/imported/Steps-0e2d6243a14d3a0e608d89a235204713_BigMode_UV.png-7ef77b8921dd0157c25d4c5fc989b504.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/BiggieBatter-fe923f2d6519e0a1d9617d1d5478d9eb_BigMode_UV.png"
-dest_files=["res://.godot/imported/BiggieBatter-fe923f2d6519e0a1d9617d1d5478d9eb_BigMode_UV.png-f5392ffbe3b9882c9a73832bb912e4ec.s3tc.ctex"]
+source_file="res://Models/Textures/Old Textures/Steps-0e2d6243a14d3a0e608d89a235204713_BigMode_UV.png"
+dest_files=["res://.godot/imported/Steps-0e2d6243a14d3a0e608d89a235204713_BigMode_UV.png-7ef77b8921dd0157c25d4c5fc989b504.s3tc.ctex"]
 
 [params]
 
