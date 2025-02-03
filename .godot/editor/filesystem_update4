@@ -1,7 +1,13 @@
-res://Scenes/MainGame.tscn
 res://Scenes/Prefabs/Balls/slowBall.tscn
+res://Models/Textures/Color_UV.tres
+res://Models/Textures/Outline.tres
+res://Models/Textures/Sparks_M.tres
+res://Sky.gdshader
 res://Scenes/Prefabs/ball.tscn
 res://Scenes/Game Test.tscn
 res://Scenes/TitleScene.tscn
-res://Models/Textures/Color_UV.tres
-res://Models/Textures/Outline.tres
+res://Scenes/Fireworks.tscn
+res://Scenes/SKY.tscn
+res://Scenes/MainGame.tscn
+res://Scenes/Ship.tscn
+res://Models/Textures/Firework.tres

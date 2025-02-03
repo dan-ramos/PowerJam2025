@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbyf406ng3kta"
-path.s3tc="res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png-312034931b5ffea9a0257d0d517483f3.s3tc.ctex"
+uid="uid://byyg6yhlftk3d"
+path.s3tc="res://.godot/imported/BigShip-bae2bccccd1b6d4dc66c0e03b2dc0a33_BigMode_UV.png-dc66d0916c12ec4dbc3001d8eb601b5d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png"
-dest_files=["res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png-312034931b5ffea9a0257d0d517483f3.s3tc.ctex"]
+source_file="res://Models/Textures/Old Textures/BigShip-bae2bccccd1b6d4dc66c0e03b2dc0a33_BigMode_UV.png"
+dest_files=["res://.godot/imported/BigShip-bae2bccccd1b6d4dc66c0e03b2dc0a33_BigMode_UV.png-dc66d0916c12ec4dbc3001d8eb601b5d.s3tc.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be5ct3cbcgomj"
-path.s3tc="res://.godot/imported/LongScreen-99a251f2b85db0c66a55cdf51dfffdb0_BigMode_UV.png-2d8d6f7f242649832ad4c567676bd3d0.s3tc.ctex"
+uid="uid://bmxwurblicytj"
+path.s3tc="res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_Quin_Base.png-b28b8fd67c52d6f19ae0e0b0dcb62115.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/LongScreen-99a251f2b85db0c66a55cdf51dfffdb0_BigMode_UV.png"
-dest_files=["res://.godot/imported/LongScreen-99a251f2b85db0c66a55cdf51dfffdb0_BigMode_UV.png-2d8d6f7f242649832ad4c567676bd3d0.s3tc.ctex"]
+source_file="res://Models/Textures/Old Textures/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_Quin_Base.png"
+dest_files=["res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_Quin_Base.png-b28b8fd67c52d6f19ae0e0b0dcb62115.s3tc.ctex"]
 
 [params]
 

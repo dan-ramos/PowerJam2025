@@ -1,11 +1,10 @@
-[gd_scene load_steps=49 format=3 uid="uid://xr87s16hcmqd"]
+[gd_scene load_steps=50 format=3 uid="uid://cljrudrmtwlnm"]
 
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
 [ext_resource type="Texture2D" uid="uid://cde7n7ggcltyd" path="res://Models/Textures/Grass.jpg" id="2_gmfpc"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
 [ext_resource type="PackedScene" uid="uid://ds1ra4mvgfpda" path="res://Models/Seats.fbx" id="2_tqevf"]
-[ext_resource type="PackedScene" uid="uid://df6txvkpnjddx" path="res://Scenes/SKY.tscn" id="3_a7epq"]
-[ext_resource type="PackedScene" uid="uid://dami1ijie7x7j" path="res://Models/Steps.fbx" id="3_cakcd"]
+[ext_resource type="PackedScene" uid="uid://c2km38hbqln62" path="res://Models/Steps.fbx" id="3_cakcd"]
 [ext_resource type="Texture2D" uid="uid://d0fkcxh3t06r2" path="res://Models/Textures/Dirt.jpg" id="3_ctbo5"]
 [ext_resource type="Texture2D" uid="uid://cj6o6fnii1hw1" path="res://Models/Textures/Pillar_Albedo.png" id="4_pnu8f"]
 [ext_resource type="ArrayMesh" uid="uid://rab5qjyum318" path="res://Models/SteelBeam.obj" id="5_hgkr7"]
@@ -16,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://cdxpmua7teohj" path="res://Models/Lights.fbx" id="9_a8gi0"]
 [ext_resource type="Texture2D" uid="uid://d134r88wnkv3a" path="res://Models/Textures/FoulPole_Albedo.png" id="10_p5mjx"]
 [ext_resource type="ArrayMesh" uid="uid://dd8dykpsktqpg" path="res://Models/FoulPole.obj" id="11_wate6"]
+[ext_resource type="PackedScene" uid="uid://dikwfgdnwv822" path="res://Models/SidePanels.fbx" id="12_u3byg"]
 [ext_resource type="PackedScene" uid="uid://brgx4q0b54ti2" path="res://Models/Roof.fbx" id="13_2qfd6"]
-[ext_resource type="PackedScene" uid="uid://dikwfgdnwv822" path="res://Models/SidePanels.fbx" id="17_kjlqn"]
 [ext_resource type="PackedScene" uid="uid://cj8d4bw0hgr71" path="res://Models/AnnouncerBox.fbx" id="17_og4js"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="19_jp2vq"]
 [ext_resource type="Script" path="res://Scripts/PitchingMarker.gd" id="20_7osr2"]
@@ -28,7 +27,6 @@
 [ext_resource type="Script" path="res://Scripts/pitchBot.gd" id="23_mkw5y"]
 [ext_resource type="PackedScene" uid="uid://c3o4gvum4ysoj" path="res://Scenes/Prefabs/joe_final.tscn" id="24_26o23"]
 [ext_resource type="Material" uid="uid://crb5tb86l5j8" path="res://Models/Textures/Outline.tres" id="24_efugo"]
-[ext_resource type="PackedScene" uid="uid://db36bleftbxpa" path="res://Scenes/Ship.tscn" id="28_rrj2x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk53x"]
 albedo_color = Color(0, 0.741176, 0.0235294, 1)
@@ -40,6 +38,15 @@ size = Vector2(100, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q55m8"]
 size = Vector3(100, 1, 100)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jxkk8"]
+
+[sub_resource type="Sky" id="Sky_wc6oq"]
+sky_material = SubResource("ProceduralSkyMaterial_jxkk8")
+
+[sub_resource type="Environment" id="Environment_6y5x6"]
+background_mode = 2
+sky = SubResource("Sky_wc6oq")
 
 [sub_resource type="BoxMesh" id="BoxMesh_8ghg4"]
 
@@ -173,8 +180,8 @@ fov = 61.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Stadium Stuff"]
 transform = Transform3D(1, 0, 0, 0, 0.185529, 0.982639, 0, -0.982639, 0.185529, 0, 0, 0)
 
-[node name="Node3D" parent="Stadium Stuff" instance=ExtResource("3_a7epq")]
-transform = Transform3D(1, 0, 0, 0, 0.185529, 0.982639, 0, -0.982639, 0.185529, 0, 0, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Stadium Stuff"]
+environment = SubResource("Environment_6y5x6")
 
 [node name="Home Plate" type="StaticBody3D" parent="Stadium Stuff" groups=["Home"]]
 transform = Transform3D(0.54, 0, 0, 0, 0.15, 0, 0, 0, 0.48, 0, 0, 0.752475)
@@ -407,6 +414,48 @@ transform = Transform3D(-0.102215, -8.93596e-09, -0.109782, -1.31134e-08, 0.15, 
 material_override = SubResource("StandardMaterial3D_72ebq")
 mesh = ExtResource("11_wate6")
 skeleton = NodePath("../..")
+
+[node name="SidePanel" parent="Stadium Stuff" instance=ExtResource("12_u3byg")]
+transform = Transform3D(17, 0, 0, 0, 17, 0, 0, 0, 17, 0, 0, -62.5737)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
+
+[node name="SidePanel2" parent="Stadium Stuff/SidePanel" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.903672, 0, 0.428225, 0, 1, 0, -0.428225, 0, 0.903672, -1.0832, 0, 0.24197)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/SidePanel2/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
+
+[node name="SidePanel3" parent="Stadium Stuff/SidePanel/SidePanel2" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.847632, 0, 0.530585, 0, 1, 0, -0.530585, 0, 0.847632, -1.04907, -1.12197e-07, 0.306412)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/SidePanel2/SidePanel3/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
+
+[node name="SidePanel4" parent="Stadium Stuff/SidePanel/SidePanel2/SidePanel3" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.842452, 0, 0.538771, 0, 1, 0, -0.538771, 0, 0.842452, -1.05173, 1.12197e-07, 0.311298)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/SidePanel2/SidePanel3/SidePanel4/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
+
+[node name="SidePanel3" parent="Stadium Stuff/SidePanel" instance=ExtResource("12_u3byg")]
+transform = Transform3D(-0.903672, 0, -0.428225, 0, 1, 0, -0.428225, 0, 0.903672, 1.0832, 0, 0.24197)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/SidePanel3/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
+
+[node name="SidePanel3" parent="Stadium Stuff/SidePanel/SidePanel3" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.847632, 0, 0.530585, 0, 1, 0, -0.530585, 0, 0.847632, -1.04907, -1.12197e-07, 0.306412)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/SidePanel3/SidePanel3/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
+
+[node name="SidePanel4" parent="Stadium Stuff/SidePanel/SidePanel3/SidePanel3" instance=ExtResource("12_u3byg")]
+transform = Transform3D(0.842452, 0, 0.538771, 0, 1, 0, -0.538771, 0, 0.842452, -1.05173, 1.12197e-07, 0.311298)
+
+[node name="SidePanel" parent="Stadium Stuff/SidePanel/SidePanel3/SidePanel3/SidePanel4/RootNode" index="0"]
+material_override = ExtResource("5_ubyl5")
 
 [node name="Beams" type="Node3D" parent="Stadium Stuff"]
 
@@ -928,87 +977,6 @@ transform = Transform3D(40.5435, 0, 0, 0, 40.5435, 0, 0, 0, 40.5435, 4.97161, 0,
 transform = Transform3D(0.689479, 0, 0, 0, 0.689479, 0, 0, 0, 0.689479, -0.0413198, 0, 0)
 material_override = ExtResource("5_ubyl5")
 
-[node name="Panel_01" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(16.8273, 0, 0, 0, 16.8273, 0, 0, 0, 16.8273, 0, 0, -60.8294)
-
-[node name="Panel_02" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(14.9799, 0, 7.66561, 0, 16.8273, 0, -7.6656, 0, 14.9799, -18, 0, -56.4)
-
-[node name="Panel_03" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(9.74776, 0, 13.7164, 0, 16.8273, 0, -13.7164, 0, 9.74776, -32, 0, -44.2)
-
-[node name="Panel_04" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(-7.35546e-07, 0, 16.8273, 0, 16.8273, 0, -16.8273, 0, -7.35546e-07, -37.6, 0, -26.7)
-
-[node name="Panel_05" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(-14.9799, 0, -7.66561, 0, 16.8273, 0, -7.6656, 0, 14.9799, 18, 0, -56.4)
-
-[node name="Panel_06" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(-9.74776, 0, -13.7164, 0, 16.8273, 0, -13.7164, 0, 9.74776, 32.0663, 0, -44.2)
-
-[node name="Panel_07" parent="Stadium Stuff" instance=ExtResource("17_kjlqn")]
-transform = Transform3D(7.35546e-07, 0, -16.8273, 0, 16.8273, 0, -16.8273, 0, -7.35546e-07, 37.5266, 0, -26.7)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7555, 33.5718, -74.474)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59547, 38.1126, -74.474)
-light_energy = 1.85
-omni_range = 9.03
-
-[node name="OmniLight3D12" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68007, 35.5236, -74.474)
-light_energy = 1.85
-omni_range = 9.03
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6093, 33.5718, -69.9835)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0688, 33.5718, -60.2546)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D4" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.6619, 33.5718, -45.5162)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D5" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.6302, 33.5718, -26.5214)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7555, 33.5718, -74.474)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6093, 33.5718, -69.9835)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -46.0688, 33.5718, -60.2546)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -54.6619, 33.5718, -45.5162)
-light_energy = 3.0
-omni_range = 9.03
-
-[node name="OmniLight3D10" type="OmniLight3D" parent="Stadium Stuff"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, -55.6302, 33.5718, -26.5214)
-light_energy = 3.0
-omni_range = 9.03
-
 [node name="BGM + Audio Manager" type="AudioStreamPlayer" parent="."]
 volume_db = -30.09
 script = ExtResource("19_jp2vq")
@@ -1098,7 +1066,7 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("20_bdgwn")]
-transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -0.0599061, 0, 0.674)
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -0.0599061, 0, 0.636371)
 script = ExtResource("2_p6vti")
 
 [node name="Skeleton3D" parent="Player/RootNode/Frogbot" index="2"]
@@ -1257,9 +1225,6 @@ material_overlay = ExtResource("24_efugo")
 material_override = ExtResource("5_ubyl5")
 material_overlay = ExtResource("24_efugo")
 
-[node name="Ship" parent="." instance=ExtResource("28_rrj2x")]
-transform = Transform3D(162.516, 0, 0, 0, 162.516, 0, 0, 0, 162.516, 0, -26.839, 0)
-
 [connection signal="child_exiting_tree" from="PitchingMarker" to="PitchingMarker" method="_on_child_exiting_tree"]
 
 [editable path="Stadium Stuff/Seats"]
@@ -1287,6 +1252,13 @@ transform = Transform3D(162.516, 0, 0, 0, 162.516, 0, 0, 0, 162.516, 0, -26.839,
 [editable path="Stadium Stuff/Seats2/Seats5/Steps"]
 [editable path="Stadium Stuff/Seats2/Seats5/Steps2"]
 [editable path="Stadium Stuff/Jumbo Screen"]
+[editable path="Stadium Stuff/SidePanel"]
+[editable path="Stadium Stuff/SidePanel/SidePanel2"]
+[editable path="Stadium Stuff/SidePanel/SidePanel2/SidePanel3"]
+[editable path="Stadium Stuff/SidePanel/SidePanel2/SidePanel3/SidePanel4"]
+[editable path="Stadium Stuff/SidePanel/SidePanel3"]
+[editable path="Stadium Stuff/SidePanel/SidePanel3/SidePanel3"]
+[editable path="Stadium Stuff/SidePanel/SidePanel3/SidePanel3/SidePanel4"]
 [editable path="Stadium Stuff/L Roof"]
 [editable path="Stadium Stuff/L Roof2"]
 [editable path="Stadium Stuff/Lights/Lights2"]
