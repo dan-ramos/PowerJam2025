@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy7ahi8fjsoyx"
-path.s3tc="res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV.png-72c1b6b9c92c2c89a993b532035e2428.s3tc.ctex"
+uid="uid://0mef0a5rc7r2"
+path.s3tc="res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png-96ac76e74019492f3c003270c9e7c0ed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV.png"
-dest_files=["res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV.png-72c1b6b9c92c2c89a993b532035e2428.s3tc.ctex"]
+source_file="res://Models/Textures/Old Textures/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png"
+dest_files=["res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png-96ac76e74019492f3c003270c9e7c0ed.s3tc.ctex"]
 
 [params]
 

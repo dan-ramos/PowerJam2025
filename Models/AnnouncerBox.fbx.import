@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0ncy4atyvwns"
-path="res://.godot/imported/Long_Billboard.fbx-af432d51683181a91b4abd47ecb6a859.scn"
+uid="uid://cj8d4bw0hgr71"
+path="res://.godot/imported/AnnouncerBox.fbx-d861eb41cf7acf60635405560bfed63e.scn"
 
 [deps]
 
-source_file="res://Models/Long_Billboard.fbx"
-dest_files=["res://.godot/imported/Long_Billboard.fbx-af432d51683181a91b4abd47ecb6a859.scn"]
+source_file="res://Models/AnnouncerBox.fbx"
+dest_files=["res://.godot/imported/AnnouncerBox.fbx-d861eb41cf7acf60635405560bfed63e.scn"]
 
 [params]
 

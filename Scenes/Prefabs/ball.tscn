@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://gyeysc37535w"]
+[gd_scene load_steps=9 format=3 uid="uid://gyeysc37535w"]
 
 [ext_resource type="Texture2D" uid="uid://d0s4f8dp1sjct" path="res://Images/DropShadow.png" id="1_dco5w"]
+[ext_resource type="Material" uid="uid://lprpr01vsr55" path="res://Models/Textures/Color_UV.tres" id="1_ty8vv"]
+[ext_resource type="Material" uid="uid://crb5tb86l5j8" path="res://Models/Textures/Outline.tres" id="2_6kbte"]
 [ext_resource type="PackedScene" uid="uid://bthf2kjylw1kv" path="res://Scenes/Prefabs/NewBall.tscn" id="2_kux2j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j8qi1"]
@@ -26,6 +28,8 @@ disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
+material_override = ExtResource("1_ty8vv")
+material_overlay = ExtResource("2_6kbte")
 mesh = SubResource("SphereMesh_7pn02")
 
 [node name="Drop Shadow" type="MeshInstance3D" parent="."]
@@ -34,3 +38,8 @@ material_override = SubResource("StandardMaterial3D_6avfb")
 mesh = SubResource("CylinderMesh_e3u2w")
 
 [node name="Root Scene" parent="." instance=ExtResource("2_kux2j")]
+
+[node name="Baseball" parent="Root Scene/RootNode/Skeleton3D" index="0"]
+material_override = ExtResource("1_ty8vv")
+
+[editable path="Root Scene"]

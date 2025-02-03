@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1q8i4vqm8ikv"
-path.s3tc="res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png-312034931b5ffea9a0257d0d517483f3.s3tc.ctex"
+uid="uid://cpy607lvp263h"
+path.s3tc="res://.godot/imported/Lights-d64d86174d88907c000fbfc2721d0a12_BigMode_UV.png-ccc428d4da9538c892b379c04e98c5ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Models/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png"
-dest_files=["res://.godot/imported/PitchBot-1374e47b3e19cab7fa05d5cfad9159f7_BigMode_UV_2.png-312034931b5ffea9a0257d0d517483f3.s3tc.ctex"]
+source_file="res://Models/Textures/Old Textures/Lights-d64d86174d88907c000fbfc2721d0a12_BigMode_UV.png"
+dest_files=["res://.godot/imported/Lights-d64d86174d88907c000fbfc2721d0a12_BigMode_UV.png-ccc428d4da9538c892b379c04e98c5ec.s3tc.ctex"]
 
 [params]
 
