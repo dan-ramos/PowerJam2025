@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://50omwtdgo3w6"]
+
+[ext_resource type="Script" path="res://Scripts/BallScripts/Pitch.gd" id="1_68hjk"]
+[ext_resource type="Script" path="res://Scripts/BallScripts/BallData.gd" id="2_ty2v4"]
+[ext_resource type="PackedScene" uid="uid://5v7myk5lcbh5" path="res://Scenes/Prefabs/lobBall.tscn" id="3_pttpq"]
+
+[sub_resource type="Resource" id="Resource_3bwtm"]
+script = ExtResource("2_ty2v4")
+speed = 50
+
+[sub_resource type="Curve3D" id="Curve3D_huqhu"]
+bake_interval = 44.48
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 28, 0, 0, 0, 0, 0, 0, 0, 0, 56.5, 0, 0, 0, 0, 0, 0, 0, -20, 75),
+"tilts": PackedFloat32Array(0, 0, 0, 50)
+}
+point_count = 4
+
+[node name="lobBall" type="Node3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1.00582, 0)
+script = ExtResource("1_68hjk")
+ballData = SubResource("Resource_3bwtm")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_huqhu")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-1, -2.94035e-08, -8.23297e-08, 0, 0.941742, -0.336336, 8.74228e-08, -0.336336, -0.941742, 0, 0, 0)
+loop = false
+
+[node name="Ball" parent="Path3D/PathFollow3D" instance=ExtResource("3_pttpq")]

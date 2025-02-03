@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://5v7myk5lcbh5"]
+
+[ext_resource type="Material" uid="uid://lprpr01vsr55" path="res://Models/Textures/Color_UV.tres" id="1_n4pm7"]
+[ext_resource type="Material" uid="uid://crb5tb86l5j8" path="res://Models/Textures/Outline.tres" id="2_s7n7b"]
+[ext_resource type="PackedScene" uid="uid://bthf2kjylw1kv" path="res://Scenes/Prefabs/NewBall.tscn" id="4_s1bgp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j8qi1"]
+radius = 0.485218
+
+[sub_resource type="SphereMesh" id="SphereMesh_7pn02"]
+
+[node name="Ball" type="StaticBody3D" groups=["Ball"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("SphereShape3D_j8qi1")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+material_override = ExtResource("1_n4pm7")
+material_overlay = ExtResource("2_s7n7b")
+mesh = SubResource("SphereMesh_7pn02")
+
+[node name="Root Scene" parent="." instance=ExtResource("4_s1bgp")]
+
+[node name="Baseball" parent="Root Scene/RootNode/Skeleton3D" index="0"]
+material_override = ExtResource("1_n4pm7")
+
+[editable path="Root Scene"]

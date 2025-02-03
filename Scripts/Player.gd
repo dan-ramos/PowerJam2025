@@ -50,6 +50,8 @@ func swing(ball):
 	var dist = reticle.global_position.distance_to(ball.global_position)
 	var ang = reticle.global_position.direction_to(ball.global_position)
 	
+	print(dist)
+	
 	batCrackPlayer.pitch_scale = rng.randf_range(0.7, 1.2)
 	
 	#this whole block of ifs and elifs determines which type of hit you get. 
