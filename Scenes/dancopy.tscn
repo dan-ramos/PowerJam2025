@@ -1,9 +1,11 @@
-[gd_scene load_steps=50 format=3 uid="uid://xr87s16hcmqd"]
+
+[gd_scene load_steps=50 format=3 uid="uid://cljrudrmtwlnm"]
 
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_aqsxd"]
 [ext_resource type="Texture2D" uid="uid://cde7n7ggcltyd" path="res://Models/Textures/Grass.jpg" id="2_gmfpc"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_p6vti"]
-[ext_resource type="PackedScene" uid="uid://dod3ktkoe8gpm" path="res://Models/Seats.fbx" id="2_tqevf"]
+
+[ext_resource type="PackedScene" uid="uid://ds1ra4mvgfpda" path="res://Models/Seats.fbx" id="2_tqevf"]
 [ext_resource type="PackedScene" uid="uid://c2km38hbqln62" path="res://Models/Steps.fbx" id="3_cakcd"]
 [ext_resource type="Texture2D" uid="uid://d0fkcxh3t06r2" path="res://Models/Textures/Dirt.jpg" id="3_ctbo5"]
 [ext_resource type="Texture2D" uid="uid://cj6o6fnii1hw1" path="res://Models/Textures/Pillar_Albedo.png" id="4_pnu8f"]
@@ -15,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cdxpmua7teohj" path="res://Models/Lights.fbx" id="9_a8gi0"]
 [ext_resource type="Texture2D" uid="uid://d134r88wnkv3a" path="res://Models/Textures/FoulPole_Albedo.png" id="10_p5mjx"]
 [ext_resource type="ArrayMesh" uid="uid://dd8dykpsktqpg" path="res://Models/FoulPole.obj" id="11_wate6"]
-[ext_resource type="PackedScene" uid="uid://bin0rid1xrhnm" path="res://Models/SidePanels.fbx" id="12_u3byg"]
+[ext_resource type="PackedScene" uid="uid://dikwfgdnwv822" path="res://Models/SidePanels.fbx" id="12_u3byg"]
 [ext_resource type="PackedScene" uid="uid://brgx4q0b54ti2" path="res://Models/Roof.fbx" id="13_2qfd6"]
 [ext_resource type="PackedScene" uid="uid://cj8d4bw0hgr71" path="res://Models/AnnouncerBox.fbx" id="17_og4js"]
 [ext_resource type="Script" path="res://Scripts/AudioManager.gd" id="19_jp2vq"]
