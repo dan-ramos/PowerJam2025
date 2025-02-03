@@ -1,13 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd2kyv7q6gae3"]
+[gd_scene load_steps=8 format=3 uid="uid://bd2kyv7q6gae3"]
 
 [ext_resource type="PackedScene" uid="uid://dxh4f8s4pk08g" path="res://Models/BiggieBatter.fbx" id="1_w7jw1"]
+[ext_resource type="Texture2D" uid="uid://d0s4f8dp1sjct" path="res://Images/DropShadow.png" id="3_dwgqj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y28c7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pmhd0"]
 albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="SphereMesh" id="SphereMesh_jmdpl"]
+[sub_resource type="SphereMesh" id="SphereMesh_c2twf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uqarf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xx3d"]
+albedo_texture = ExtResource("3_dwgqj")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_28tj8"]
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.01
 
 [node name="BiggieBatter" instance=ExtResource("1_w7jw1")]
 transform = Transform3D(-8.74228e-07, 0, -20, 0, 20, 0, 20, 0, -8.74228e-07, 0, 0, 0)
@@ -18,18 +27,24 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Reticle" index="0"]
-transform = Transform3D(0.01, 0, 1.16415e-10, 0, 0.01, 0, -1.16415e-10, 0, 0.01, 0, 0, 0)
-material_overlay = SubResource("StandardMaterial3D_y28c7")
-mesh = SubResource("SphereMesh_jmdpl")
+transform = Transform3D(-4.37114e-10, 0.01, -4.37114e-10, 0, -4.37114e-10, -0.01, -0.01, -4.37114e-10, 1.91069e-17, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_pmhd0")
+mesh = SubResource("SphereMesh_c2twf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Reticle" index="1"]
 shape = SubResource("SphereShape3D_uqarf")
 disabled = true
 
 [node name="ReticleRay" type="RayCast3D" parent="Reticle" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000108264, -0.000386097, 8.74698e-06)
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0.000108264, -0.000386089, 8.74698e-06)
+visible = false
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Drop Shadow" type="MeshInstance3D" parent="Reticle" index="3"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, -0.131856, 0)
+material_override = SubResource("StandardMaterial3D_4xx3d")
+mesh = SubResource("CylinderMesh_28tj8")
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." index="3"]
 volume_db = -25.746

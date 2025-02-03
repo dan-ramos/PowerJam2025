@@ -1098,7 +1098,7 @@ libraries = {
 }
 
 [node name="Player" parent="." instance=ExtResource("20_bdgwn")]
-transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -0.0599061, 0, 0.674)
+transform = Transform3D(-3.0598e-07, 0, -7, 0, 7, 0, 7, 0, -3.0598e-07, -0.0599061, 0, 0.636371)
 script = ExtResource("2_p6vti")
 
 [node name="Skeleton3D" parent="Player/RootNode/Frogbot" index="2"]
