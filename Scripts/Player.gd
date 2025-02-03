@@ -56,12 +56,12 @@ func swing(ball):
 	
 	#this whole block of ifs and elifs determines which type of hit you get. 
 	#each one emits a signal to the game manager script that continues the sequence
-	if dist <= 0.16:
+	if dist <= 0.2:
 		print("Home Run!")
 		emit_signal("homeRun")
 		batCrackPlayer.play()
 		
-	elif dist > 0.16 and dist <= 0.32:
+	elif dist > 0.2 and dist <= 0.36:
 		batCrackPlayer.play()
 		
 		if ang.x*100 < -45:
@@ -74,7 +74,7 @@ func swing(ball):
 			print("Home Run!")
 			emit_signal("homeRun")
 			
-	elif dist > 0.32 and dist <= 0.45:
+	elif dist > 0.36 and dist <= 0.45:
 		batCrackPlayer.play()
 		
 		var coin = rng.randi()

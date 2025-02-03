@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwdlo8lp281ly"]
+[gd_scene load_steps=5 format=3 uid="uid://cnyaig6d7y203"]
 
 [ext_resource type="Script" path="res://Scripts/BallScripts/Pitch.gd" id="1_26m5i"]
 [ext_resource type="Resource" uid="uid://do5bpnh52dmu5" path="res://Resources/mediumBall.tres" id="2_u4rfc"]
 [ext_resource type="PackedScene" uid="uid://gyeysc37535w" path="res://Scenes/Prefabs/ball.tscn" id="3_5jj8b"]
 
 [sub_resource type="Curve3D" id="Curve3D_huqhu"]
+bake_interval = 72.3
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 56.5, 0, 0, 0, 0, 0, 0, 0, 0, 70),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2, 10, 0, 0, 0, 0, 0, 0, 0, 2, 20, 0, 0, 0, 0, 0, 0, 0, -2, 30, 0, 0, 0, 0, 0, 0, 0, 2, 40, 0, 0, 0, 0, 0, 0, 0, -2, 50, 0, 0, 0, 0, 0, 0, 0, 0, 56.5, 0, 0, 0, 0, 0, 0, 0, 2, 60, 0, 0, 0, 0, 0, 0, 0, -2, 70),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 3
+point_count = 9
 
-[node name="mediumBall" type="Node3D"]
+[node name="gravityBall" type="Node3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -1.00582, 0)
 script = ExtResource("1_26m5i")
 ballData = ExtResource("2_u4rfc")

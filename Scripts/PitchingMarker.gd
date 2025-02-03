@@ -8,15 +8,23 @@ var balls = [
 				'res://Scenes/Prefabs/Balls/slowBall.tscn',
 				'res://Scenes/Prefabs/Balls/mediumBall.tscn',
 				'res://Scenes/Prefabs/Balls/fastBall.tscn',
-				'res://Scenes/Prefabs/Balls/squareBall.tscn',
-				'res://Scenes/Prefabs/Balls/lobBall.tscn'
+				'res://Scenes/Prefabs/Balls/lobBall.tscn', #easy
+				'res://Scenes/Prefabs/Balls/slowBall.tscn',
+				'res://Scenes/Prefabs/Balls/mediumBall.tscn',
+				'res://Scenes/Prefabs/Balls/fastBall.tscn',
+				'res://Scenes/Prefabs/Balls/lobBall.tscn', #easy
+				
+				'res://Scenes/Prefabs/Balls/gravityBall.tscn',
+				'res://Scenes/Prefabs/Balls/squareBall.tscn', 
+				'res://Scenes/Prefabs/Balls/zigzagBall.tscn',
+				'res://Scenes/Prefabs/Balls/swirlBall.tscn'
 			]
 var instance
 var nextBall
 var nextBallName
 
 func _ready():
-	nextBallName = 'res://Scenes/Prefabs/Balls/lobBall.tscn'
+	nextBallName = 'res://Scenes/Prefabs/Balls/slowBall.tscn'
 	nextBall = load(nextBallName)
 	rng = RandomNumberGenerator.new()
 
