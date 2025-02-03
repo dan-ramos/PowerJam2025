@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://db36bleftbxpa"]
+
+[ext_resource type="PackedScene" uid="uid://xgc84daq5r27" path="res://Models/BigShip.fbx" id="1_flw53"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_flw53")]
