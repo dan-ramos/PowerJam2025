@@ -67,12 +67,16 @@ func _process(delta):
 			intro = false
 			resetForNextPitch()
 	elif balltime:
+		var csb = get_tree().get_first_node_in_group("CSB")
+		if csb != null:
+			$"Stadium Stuff/Camera3D".look_at(csb.global_position)
 		player.controllable = false
 		timer += delta
 		if timer > cutsceneBallLiveTime:
 			resetForNextPitch()
 	else:
 		handlePitching(delta)
+		$"Stadium Stuff/Camera3D".rotation = Vector3(-0.144426, 0, 0)
 
 func handlePitching(delta):
 	if pitchTimer < timeTilNextBall:

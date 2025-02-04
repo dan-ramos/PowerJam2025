@@ -9,7 +9,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_ai8kl"]
 
-[node name="CutsceneBall" type="RigidBody3D"]
+[node name="CutsceneBall" type="RigidBody3D" groups=["CSB"]]
 collision_layer = 4
 collision_mask = 4
 mass = 0.3
